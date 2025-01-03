@@ -1,0 +1,85 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: "Poppins", serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+.body-container {
+	display: flex;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.main-content {
+	flex-grow: 1;
+	margin: 80px 12%;
+}
+
+.main-container {
+	background-color: var(--azzurro-sfondo);
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.main-header {
+	background-color: var(--bianco);
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo-container {
+	display: flex;
+}
+
+.logo-image{
+	padding: 10px;
+}
+
+.logo-name{
+	font-size: 28px;
+	padding: 18px 10px 16px 0px;
+}
+
+.user-container {
+	margin-right: 50px;
+	width: 350px;
+	display: flex;
+	justify-content: end;
+}
+
+.user-name {
+	padding: 28px 10px 30px 30px;
+}
+
+.user-image {
+	border-radius: 50%;
+	padding: 10px;
+	width: 60px;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.main-content-impegni {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.main-content-intestazione{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.main-content-calendario{
+	flex-grow: 1;
+	height: max-content;
+}

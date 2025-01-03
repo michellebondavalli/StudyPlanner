@@ -1,0 +1,38 @@
+.day-selector {
+	width: 400px;
+	height: 54px;
+	border-radius: 99px;
+	box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+	display: flex;
+	background-color: var(--bianco);
+}
+
+.day-selector-leftarrow{
+	width: 50px;
+	text-align: center;
+	padding: 16px 0px 16px 8px;
+	cursor: pointer;
+	border-radius: 99px;
+}
+
+.day-selector-rightarrow{
+	width: 50px;
+	text-align: center;
+	padding: 16px 0px 16px 4px;
+	cursor: pointer;
+	border-radius: 99px;
+}
+
+.day-selector-leftarrow:hover, .day-selector-rightarrow:hover{
+	background-color: var(--azzurro-hover);
+}
+
+.day-selector-selectedday{
+	flex-grow: 1;
+	text-align: center;
+	padding: 16px 0px;
+}
+
+#selectedDay{
+	min-width: 195px;
+}
