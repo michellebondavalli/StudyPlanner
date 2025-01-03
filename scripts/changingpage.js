@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    $('.main-content-home').show();
+    $('.main-content-impegni').hide();
+    $('.main-content-grafici').hide();
+    $('.main-content-impostazioni').hide();
+    $('.main-content-account').hide();
+
     $('ul li').on('click', function() {
         $('li').removeClass('active');
         $(this).addClass('active');
