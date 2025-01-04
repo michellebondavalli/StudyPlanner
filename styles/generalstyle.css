@@ -82,12 +82,14 @@
 .main-content-calendario{
 	flex-grow: 1;
 	height: max-content;
+	min-width: 690px;
 	display: flex;
 }
 
 .main-content-calendario-fullcalendar{
 	height: 100%;
 	border-radius: 30px;
+	min-width: 550px;
 	flex-grow: 0.65;
 	background-color: var(--bianco);
 	box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
