@@ -171,13 +171,15 @@
             $(document).ready(function() {
                 var calendarEl = document.getElementById('div-fullcalendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth',
+                    initialView: 'timeGridDay',
                     height: '100%',
                     headerToolbar: false,
                     locale: 'it',
                     firstDay: 1
                 });
+
                 calendar.render();
+                calendar.updateSize();
 
                 $(window).resize(function() {
                     calendar.updateSize();
@@ -198,8 +200,6 @@
             })
 
             
-
-
             /*document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('div-fullcalendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
