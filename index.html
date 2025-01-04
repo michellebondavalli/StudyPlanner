@@ -13,17 +13,17 @@
             sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH
         " crossorigin = "anonymous">-->
 
-        <!--FullCalendar-->
-        <script src="
-            https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
-        "></script>
-
         <!--jQuery-->
         <script src = "
             https://code.jquery.com/jquery-3.7.1.js
         " integrity = "
             sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=
         " crossorigin = "anonymous"></script>
+
+        <!--FullCalendar-->
+        <script src="
+            https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
+        "></script>
 
         <!--Style-->
         <link rel="stylesheet" href="styles/globalvariables.css">
@@ -167,17 +167,28 @@
 
         <script>
             $(document).ready(function() {
-                $('div-fullcalendar').FullCalendar({
+                var calendarEl = $('div-fullcalendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
                     header: false,
                     initialView: 'dayGridMonth'
                 });
+                calendar.render();
+            })
+
+            $(window).resize(function() {
+                var calendarEl = $('div-fullcalendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    header: false,
+                    initialView: 'dayGridMonth'
+                });
+                calendar.render();
             })
 
 
             /*document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('div-fullcalendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
-                    Headers: false;
+                    header: false,
                     initialView: 'dayGridMonth'
                 });
                 calendar.render();
