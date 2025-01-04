@@ -110,6 +110,7 @@
 
 .div-title{
 	padding: 10px;
+	padding-bottom: 0px;
 	font-size: 20px;
 	color: black;
 	text-align: center;
@@ -122,7 +123,14 @@
 	border: 0px;
 }
 
-#div-fullcalendar, #div-todolist{
+.div-container-fullcalendar, #div-todolist{
 	height: 100%;
 	width: 100%;
+	display: flex;
+}
+
+#div-fullcalendar{
+	flex-grow: 1;
+	padding: 10px;
+	height: max-content;
 }
