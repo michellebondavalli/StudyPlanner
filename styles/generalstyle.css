@@ -121,3 +121,8 @@
 	height: 1.5px;
 	border: 0px;
 }
+
+.div-fullcalendar, .div-todolist{
+	height: 100%;
+	width: 100%;
+}
