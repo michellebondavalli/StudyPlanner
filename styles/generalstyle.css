@@ -89,10 +89,15 @@
 	height: max-content;
 	border-radius: 20%;
 	min-width: 200px;
+	width: 200px;
+	background-color: var(--bianco);
+	box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
 }
 
 .main-content-calendario-todolist{
 	margin-left: 5px;
 	height: max-content;
 	flex-grow: 1;
+	background-color: var(--bianco);
+	box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
 }
