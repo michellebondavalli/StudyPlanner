@@ -93,6 +93,8 @@
 	flex-grow: 0.80;
 	background-color: var(--bianco);
 	box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+	display: flex;
+	flex-direction: column;
 }
 
 .main-content-calendario-todolist{
@@ -102,4 +104,13 @@
 	border-radius: 30px;
 	background-color: var(--bianco);
 	box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+	display: flex;
+	flex-direction: column;
+}
+
+.div-title{
+	padding: 20px;
+	font-size: 20px;
+	font-weight: 600;
+	color: black;
 }
