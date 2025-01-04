@@ -113,4 +113,10 @@
 	font-size: 20px;
 	font-weight: 600;
 	color: black;
+	text-align: center;
+}
+
+.hr-calendario{
+	color: var(--azzurro-sfondo);
+	height: 2px;
 }
