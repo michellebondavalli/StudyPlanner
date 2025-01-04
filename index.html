@@ -166,12 +166,14 @@
         <script src="scripts/changingpage.js"></script>
     </body>
     <script>
-        $(document).ready(function() {
-            var calendarEl = $('#div-fullcalendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridDay'
-            });
-            calendar.render();
-        })
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth'
+          });
+          calendar.render();
+        });
+  
       </script>
 </html>
