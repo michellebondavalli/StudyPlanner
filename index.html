@@ -169,20 +169,19 @@
             $(document).ready(function() {
                 var calendarEl = $('div-fullcalendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
-                    header: false,
                     initialView: 'dayGridMonth'
                 });
                 calendar.render();
             })
 
-            $(window).resize(function() {
+            /*$(window).resize(function() {
                 var calendarEl = $('div-fullcalendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
-                    header: false,
-                    initialView: 'dayGridMonth'
+                    initialView: 'dayGridMonth',
+                    Headers: false
                 });
                 calendar.render();
-            })
+            })*/
 
 
             /*document.addEventListener('DOMContentLoaded', function() {
