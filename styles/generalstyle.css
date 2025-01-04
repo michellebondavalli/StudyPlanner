@@ -111,7 +111,6 @@
 .div-title{
 	padding: 10px;
 	font-size: 20px;
-	font-weight: 600;
 	color: black;
 	text-align: center;
 }
@@ -119,5 +118,6 @@
 .hr-calendario{
 	background-color: var(--azzurro-sfondo);
 	border-radius: 30px;
-	height: 2px;
+	height: 1.5px;
+	border: 0px;
 }
