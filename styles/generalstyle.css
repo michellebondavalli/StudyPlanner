@@ -117,6 +117,7 @@
 }
 
 .hr-calendario{
-	color: var(--azzurro-sfondo);
+	background-color: var(--azzurro-sfondo);
+	border-radius: 30px;
 	height: 2px;
 }
