@@ -128,7 +128,7 @@
                                     Calendario
                                     <hr class="hr-calendario">
                                 </div>
-                                <div class="div-fullcalendar">
+                                <div id="div-fullcalendar">
 
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
                                     Lista
                                     <hr class="hr-calendario">
                                 </div>
-                                <div class="div-todolist">
+                                <div id="div-todolist">
 
                                 </div>
                             </div>
@@ -165,4 +165,13 @@
         <script src="scripts/today.js"></script>
         <script src="scripts/changingpage.js"></script>
     </body>
+    <script>
+        $(document).ready(function() {
+            var calendarEl = $('#div-fullcalendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'timeGridDay'
+            });
+            calendar.render();
+        })
+      </script>
 </html>
