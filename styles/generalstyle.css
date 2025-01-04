@@ -82,4 +82,17 @@
 .main-content-calendario{
 	flex-grow: 1;
 	height: max-content;
+	display: flex;
+}
+
+.main-content-calendario-fullcalendar{
+	height: max-content;
+	border-radius: 20%;
+	min-width: 200px;
+}
+
+.main-content-calendario-todolist{
+	margin-left: 5px;
+	height: max-content;
+	flex-grow: 1;
 }
