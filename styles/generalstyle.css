@@ -156,6 +156,7 @@
 	flex-direction: column;
 	flex-grow: 0.65;
 	margin:20px;
+	justify-content: space-between;
 }
 
 .main-content-voti-elenco, .main-content-voti-corrente{
@@ -166,4 +167,17 @@
 	border-radius: 30px;
 }
 
+.main-content-voti-grafico{
+	height: 100%;
+    display: flex;
+	flex-direction: column;
+	flex-grow: 0.65;
+}
 
+.main-content-voti-obiettivo{
+	height: 100%;
+	background-color: var(--bianco);
+	box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
+	flex-grow: 0.35;
+	border-radius: 30px;
+}
