@@ -30,6 +30,7 @@
 	height: 80px;
 	display: flex;
 	justify-content: space-between;
+	box-shadow: 0 , 0 6px 12px 0 var(--blu-ombra-item);
 }
 
 .logo-container {
