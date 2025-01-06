@@ -9,6 +9,7 @@ $(document).ready(function() {
     });
 
     calendar.render();
+    calendar.updateSize();
 
     $(window).resize(function() {
         calendar.updateSize();
