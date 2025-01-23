@@ -4,6 +4,7 @@ $(document).ready(function() {
         initialView: 'timeGridDay',
         fixedWeekCount: false,
         dayHeaders: false,
+        allDaySlot: false,
         height: '100%',
         locale: 'it',
         firstDay: 1,

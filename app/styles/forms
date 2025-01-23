@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: "Poppins", serif;
+	font-weight: 500;
+	font-style: normal;
+}
+
+body{
+    background-color: var(--azzurro-sfondo-form);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+    padding: 3.5rem;
+    box-sizing: border-box;
+    -webkit-border-radius: 8px;
+    border-radius: 30px;
+    background-color: var(--bianco);
+    box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
+
+}
+
+.box h2 {
+    margin-bottom: 30px;
+    padding: 0;
+    text-align: center;
+    color: #202124;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.box .logo 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.box .inputBox {
+    position: relative;
+}
+
+.box .inputBox input {
+    width: 93%;
+    padding: 1.1rem 0px 1.1rem 25px;
+    font-size: 1rem;
+   letter-spacing: 0.062rem;
+   margin-bottom: 1.875rem;
+   border: 1px solid #ccc;
+   background: transparent;
+   border-radius: 30px;
+}
+
+.box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    padding: 1.1rem 0 1.3rem 0.8rem;
+    font-size: 1rem;
+    color: gray;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label,
+.box .inputBox input:not([value=""]) ~ label {
+    top: -0.9rem;
+    left: 23px;
+    color: var(--blu-icona-hover);
+    font-size: 0.75rem;
+    background-color: var(--bianco);
+    height: 10px;
+    padding: 5px 3px;
+}
+
+.box .inputBox input:focus {
+    outline: none;
+    border: 2px solid #1a73e8;
+}
+
+.box input[type="submit"] {
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    color: #fff;
+    background-color:var(--azzurro-sfondo);
+    padding: 0.8rem 1.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    width:100%
+}
+
+.box input[type="submit"]:hover {
+    background-color: var(--blu-icona-hover);
+    box-shadow: 0 1px 1px 0 rgba(66,133,244,0.45), 0 1px 3px 1px rgba(66,133,244,0.3);
+}
+
+p{
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+a{
+    color: var(--azzurro-sfondo);
+}
+
+a:hover{
+    color: var(--blu-icona-hover);
+}
