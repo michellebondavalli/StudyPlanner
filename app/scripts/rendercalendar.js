@@ -19,8 +19,14 @@ $(document).ready(function() {
     });
 
     $("#selectedDay").html(calendar.view.title);
-    calendar.render();
-    calendar.updateSize();
+
+    $("#sidebar-impegni").click(function() {
+        setTimeout(function() { calendar.render(); }, 10);
+    });
+
+    $(".tabs input").click(function() {
+        calendar.today();
+    });
 
     $(window).resize(function() {
         calendar.updateSize();

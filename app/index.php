@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    require_once("scripts/funzioni.php");
+?>
 <!DOCTYPE html>
 <html lang="it">
     <head>
@@ -85,10 +89,12 @@
                     </div>
                     <div class="user-container">
                         <div class="user-name">
-                            <p class="userName">Catito Lachowski<!--PHP!!!!!!!!!!!!!!--></p> <!--max 23 caratteri-->
+                            <p class="userName"><?php echo $_SESSION["user"]["username"]; ?></p> <!--max 23 caratteri-->
                         </div>
-                            <!--PHP!!!!!!!!!!!!!!-->
-                            <img src="images/main icons/quadrato.jpg" class="user-image" height="60px" alt="user immage">
+                        <!--
+                            TODO: aggiungere immagine utente
+                        -->
+                        <img src="images/main icons/defaultImg.png" class="user-image" height="60px" alt="user image">
                     </div>
                 </div>
 
@@ -196,12 +202,12 @@
                         <div class="content-aggiungi-impegno">
 
                             <div class="inputBox">
-                                <input  id="inputBoxNomeImpegno" type="text" name="nomeImpegno" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                                <input id="inputBoxNomeImpegno" type="text" name="nomeImpegno" required onkeyup="this.setAttribute('value', this.value);" value="">
                                 <label>Nome</label>
                             </div>
 
                             <div class="inputBox">
-                                <input  id="inputBoxDescrizioneImpegno" type="text" name="descrizione" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                                <input id="inputBoxDescrizioneImpegno" type="text" name="descrizione" required onkeyup="this.setAttribute('value', this.value);" value="">
                                 <label>Descrizione</label>
                             </div>
 
