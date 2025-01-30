@@ -48,7 +48,7 @@
     }
 
     //controllo se l'utente è stato verificato
-    if(isset($row["token_verifica"])){
+    if(isset($row["token"])){
         $_SESSION["errorLoginAuth"] = "Non ti sei ancora verificato";
         header("Location: ../login.php");
         return;

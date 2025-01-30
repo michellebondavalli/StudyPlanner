@@ -26,7 +26,7 @@
         header("Location: ../registrazione.php");
         return;
     }
-    
+
     /*creazione PDO*/
     $pdo = pdoConnection();
 
@@ -72,16 +72,10 @@
         return;
     }
 
-    $corpo =    "Benvenuto/a $username! <br>" . 
-                "Per completare la registrazione, clicca sul link sottostante: <br>" .
-                "http://studyplanner.altervista.org/app/scripts/verificaToken.php?token=$hashToken <br><br>";
-
-    $headers =  "From: noreply@studyplanner.it" . "\r\n" .
-                "MIME-Version: 1.0" . "\r\n" .
-                "Content-type: text/html; charset=UTF-8";
+    require_once("mailHeaderBody.php");
 
     if(mail($email, "Verifica", $corpo, $headers)){
-        $_SESSION["successRegistration"] = "Invio mail avvenuto con successo";
+        $_SESSION["successRegistration"] = "Ti abbiamo inviato una mail per verificare il tuo account";
         header("Location: ../login.php");
         return;
     } else {

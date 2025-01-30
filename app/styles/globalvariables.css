@@ -1,8 +1,12 @@
 :root {
     --bianco : #fffcf8;
     --azzurro-hover:  #d6e8f7;
-    --azzurro-sfondo: #98bee2;  
+    --azzurro-sfondo: #98bee2;
     --azzurro-sfondo-form: #d6e8f7;
     --blu-icona-hover: #185ee0;
     --blu-ombra-item: #185ee04d;
+    --verde-acqua:#98e2e0;
+    --rosino: #e2adb4;
+    --verdino:#99d2a1;
+    --lilla:#caaacd;
 }

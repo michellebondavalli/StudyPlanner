@@ -1,6 +1,10 @@
 <?php
     session_start();
     require_once("scripts/funzioni.php");
+    if(!isset($_SESSION["user"])){
+        header("Location: login.php");
+        return;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -193,28 +197,46 @@
 
              <!--AggiungiImpegno-->
              <div class="container-aggiungi-impegno-background"></div>
-                <div class="container-aggiungi-impegno">
-                    <div class="div-title">
-                        Aggiungi Impegno
-                        <hr class="hr-calendario">
-                    </div>
-                    <form action="scripts/aggiungiImpegno.php" method="POST" class="form-aggiungi-impegno">
-                        <div class="content-aggiungi-impegno">
-
-                            <div class="inputBox">
-                                <input id="inputBoxNomeImpegno" type="text" name="nomeImpegno" required onkeyup="this.setAttribute('value', this.value);" value="">
-                                <label>Nome</label>
-                            </div>
-
-                            <div class="inputBox">
-                                <input id="inputBoxDescrizioneImpegno" type="text" name="descrizione" required onkeyup="this.setAttribute('value', this.value);" value="">
-                                <label>Descrizione</label>
-                            </div>
-
-                        </div>
-                    </form>
+            <div class="container-aggiungi-impegno">
+                <div class="div-title">
+                    <p>Aggiungi Impegno</p>
+                    <hr class="hr-calendario">
                 </div>
+                <form action="scripts/aggiungiImpegno.php" method="POST" class="form-aggiungi-impegno">
+                    <div class="content-aggiungi-impegno">
 
+                        <div class="inputBox">
+                            <input id="inputBoxNomeImpegno" type="text" name="nomeImpegno" placeholder="Nome">
+                        </div>
+
+                        <div class="inputBox">
+                            <textarea id="inputBoxDescrizioneImpegno" name="descrizione" placeholder="Descrizione"></textarea>
+                        </div>
+
+                        <div class="colors-box">
+                            <span>Colore</span>
+                            <input type="radio" class="colors" id="color1" name="color" checked>
+                            <input type="radio" class="colors" id="color2" name="color">
+                            <input type="radio" class="colors" id="color3" name="color">
+                            <input type="radio" class="colors" id="color4" name="color">
+                            <input type="radio" class="colors" id="color5" name="color">
+                        </div>
+                        
+                        <div class="day-selector-box">
+                            <span>Giorno</span>
+                            <input type="date" name="dataImpegno">
+                        </div>
+
+                        <div class="time-selector-box">
+                            <span>Dalle ore:</span>
+                            <input type="time" name="oraInizio">
+                            <span>alle ore:</span>
+                            <input type="time" name="oraFine">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
         <script src="scripts/rendercalendar.js"></script>
         <script src="scripts/changingpage.js"></script>

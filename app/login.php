@@ -42,23 +42,19 @@
                     <label>Password</label>
                 </div>
 
-                <div class="form-error">
-                    <?php
-                        if(isset($_SESSION["errorLoginAuth"])) {
-                            echo $_SESSION["errorLoginAuth"];
-                            unset($_SESSION["errorLoginAuth"]);
-                        }
-                    ?>
-                </div>
+                <div class="form-error"><?php
+                    if(isset($_SESSION["errorLoginAuth"])) {
+                        echo $_SESSION["errorLoginAuth"];
+                        unset($_SESSION["errorLoginAuth"]);
+                    }
+                ?></div>
 
-                <div class="form-success">
-                    <?php
-                        if(isset($_SESSION["successRegistration"])) {
-                            echo $_SESSION["successRegistration"];
-                            unset($_SESSION["successRegistration"]);
-                        }
-                    ?>
-                </div>
+                <div class="form-success"><?php
+                    if(isset($_SESSION["successRegistration"])) {
+                        echo $_SESSION["successRegistration"];
+                        unset($_SESSION["successRegistration"]);
+                    }
+                ?></div>
                 
                 <input type="submit" name="accedi" value="Accedi">
             </form>

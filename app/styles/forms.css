@@ -130,6 +130,10 @@ h1{
     margin-bottom: 30px;
 }
 
+.box .form-error:empty{
+    display: none;
+}
+
 .box .form-success{
     color:green;
     font-size: 16px;
@@ -137,72 +141,128 @@ h1{
     margin-bottom: 30px;
 }
 
+.box .form-success:empty{
+    display: none;
+}
+
 /*-----pagina aggiungi impegno-------------------------------------------------*/
-.content-aggiungi-impegno .inputBox {
-    position: relative;
-}
 
-.content-aggiungi-impegno .inputBox input {
-    width: 70%;
+
+.content-aggiungi-impegno .inputBox input,
+.content-aggiungi-impegno .inputBox textarea {
     font-size: 1rem;
-   letter-spacing: 0.062rem;
-   margin-top: 1.875rem;
-   border: 1px solid #ccc;
-   background: transparent;
-   border-radius: 30px;
-   margin-left:15%;
-   margin-right: 15%;
-}
-
-.content-aggiungi-impegno .inputBox label {
-    position: absolute;
-    top: 30px;
-    left: 90px;
-    padding: 1.1rem 0 1.3rem 0.8rem;
-    font-size: 1rem;
-    color: gray;
-    pointer-events: none;
-    transition: 0.2s;
-}
-
-.content-aggiungi-impegno .inputBox input:focus ~ label,
-.content-aggiungi-impegno .inputBox input:valid ~ label,
-.content-aggiungi-impegno .inputBox input:not([value=""]) ~ label {
-    top: -0.9rem;
-    left: 23px;
-    color: var(--blu-icona-hover);
-    font-size: 0.75rem;
-    background-color: var(--bianco);
-    height: 10px;
-    padding: 5px 3px;
-}
-
-.content-aggiungi-impegno .inputBox input:focus {
-    outline: none;
-    border: 2px solid #1a73e8;
-}
-
-.content-aggiungi-impegno input[type="submit"] {
-    border: none;
+    letter-spacing: 0.062rem;
+    border: 1px solid #ccc;
+    background: transparent;
     border-radius: 30px;
+    resize: none;
+    width: calc(100% - 50px);
+    padding: 16px 25px;
+}
+
+.content-aggiungi-impegno .inputBox {
+    margin-top: 1.875rem;
+    margin-left:15%;
+    margin-right: 15%;
+}
+
+.content-aggiungi-impegno input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     outline: none;
-    color: #fff;
-    background-color:var(--azzurro-sfondo);
-    padding: 0.8rem 1.25rem;
+    background-color: white;
     cursor: pointer;
-    font-size: 1rem;
-    width:100%
 }
 
-.content-aggiungi-impegno input[type="submit"]:hover {
-    background-color: var(--blu-icona-hover);
-    box-shadow: 0 1px 1px 0 rgba(66,133,244,0.45), 0 1px 3px 1px rgba(66,133,244,0.3);
+.content-aggiungi-impegno input[type="radio"]:checked {
+    border: 2px solid black;
 }
 
-.content-aggiungi-impegno .inputBox #inputBoxNomeImpegno {
-    padding: 0.6rem 0px 1.1rem 25px;
+.container-aggiungi-impegno .colors-box{
+	display: flex;
+	justify-content: space-between;
+	margin: 30px 17%;
 }
 
-.content-aggiungi-impegno .inputBox #inputBoxDescrizioneImpegno {
-    padding: 1.2rem 0px 1.1rem 25px;
+.container-aggiungi-impegno .colors-box .colors{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: var(--azzurro-sfondo);
+
+}
+
+#color1{
+	background-color: var(--azzurro-sfondo);
+}
+
+#color2{
+	background-color: var(--verde-acqua);
+}
+
+#color3{
+	background-color: var(--rosino);
+}
+
+#color4{	
+	background-color: var(--verdino);
+}
+
+#color5{
+	background-color: var(--lilla);
+}
+
+
+.content-aggiungi-impegno .day-selector-box{
+    display: flex;
+    flex-direction: row;
+	margin: 30px 17%;
+	align-items: center;
+}
+
+.content-aggiungi-impegno input[type="date"]{
+    width: 125px;
+    background: transparent;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    padding: 0.7rem;
+	margin-left:30px;
+}
+
+.content-aggiungi-impegno .inputBox input:focus,
+.content-aggiungi-impegno .inputBox textarea:focus,
+.content-aggiungi-impegno input[type="date"]:focus,
+.content-aggiungi-impegno input[type="time"]:focus {
+    outline: none;
+    border: 2px solid var(--blu-icona-hover);
+}
+
+::-webkit-calendar-picker-indicator{
+    background-position:center;
+    background-size:20px 20px;
+    background-repeat:no-repeat;
+    color:rgba(204,204,204,0);
+}
+
+.content-aggiungi-impegno .time-selector-box{
+    display: flex;
+    flex-direction: row;
+	margin: 30px 17%;
+    align-items: center;
+}
+
+.content-aggiungi-impegno input[type="time"]{
+    width: 70px;
+    background: transparent;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    padding: 0.7rem;
+	margin:0px 30px;
+}
+
+.time-selector-box span{
+    min-width: 75px;
 }

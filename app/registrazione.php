@@ -58,16 +58,14 @@
                     <label>Conferma password</label>
                 </div>
 
-                <div class="form-error">
-                    <?php
-                        /*print_r($_SESSION);
-                        echo "<br><br><br>";*/
-                        if(isset($_SESSION["errorRegistrationConfirm"])) {
-                            echo $_SESSION["errorRegistrationConfirm"];
-                            unset($_SESSION["errorRegistrationConfirm"]);
-                        }
-                    ?>
-                </div>
+                <div class="form-error"><?php
+                    /*print_r($_SESSION);
+                    echo "<br><br><br>";*/
+                    if(isset($_SESSION["errorRegistrationConfirm"])) {
+                        echo $_SESSION["errorRegistrationConfirm"];
+                        unset($_SESSION["errorRegistrationConfirm"]);
+                    }
+                ?></div>
                 
                 <input type="submit" name="registrati" value="Registrati">
             </form>
