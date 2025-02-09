@@ -1,0 +1,114 @@
+<?php
+    session_start();
+    require_once("scripts/funzioni.php");
+    if(!isset($_SESSION["user"])){
+        header("Location: login.php");
+        return;
+    }
+
+    $htmlStart = '
+        <!DOCTYPE html>
+        <html lang="it">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="icon" href="images/main icons/logo/Logo2.png" type="image/x-icon">
+                <title>Home</title>
+
+                <!--Bootstrap
+                <link href = "
+                    https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css
+                " rel = "stylesheet"
+                integrity = "
+                    sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH
+                " crossorigin = "anonymous">-->
+
+                <!--jQuery-->
+                <script src = "
+                    https://code.jquery.com/jquery-3.7.1.js
+                " integrity = "
+                    sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=
+                " crossorigin = "anonymous"></script>
+
+                <!--FullCalendar-->
+                <script src="
+                    https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
+                "></script>
+
+                <!--Style-->
+                <link rel="stylesheet" href="styles/globalvariables.css">
+                <link rel="stylesheet" href="styles/generalstyle.css">
+                <link rel="stylesheet" href="styles/sidebarstyle.css">
+                <link rel="stylesheet" href="styles/calendarviewstyle.css">
+                <link rel="stylesheet" href="styles/dayselector.css">
+                <link rel="stylesheet" href="styles/scrollbar.css">
+                <link rel="stylesheet" href="styles/forms.css">
+
+                <!--Fonts-->
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href = "
+                    https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
+                " rel = "stylesheet">
+
+                <link rel="manifest" href="manifest.json">
+            </head>
+
+            <body>
+                <div class="body-container">
+
+                    <!--Sidebar-->
+                    <nav class="sidebar-navigation">
+                        <ul>
+                            <li class="active" id="sidebar-home">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="M226.67-186.67h140v-246.66h226.66v246.66h140v-380L480-756.67l-253.33 190v380ZM160-120v-480l320-240 320 240v480H526.67v-246.67h-93.34V-120H160Zm320-352Z"/></svg>
+                                <span class="tooltip">Home</span>
+                            </li>
+                            <li id="sidebar-impegni">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="M186.67-80q-27 0-46.84-19.83Q120-119.67 120-146.67v-600q0-27 19.83-46.83 19.84-19.83 46.84-19.83h56.66V-880h70v66.67h333.34V-880h70v66.67h56.66q27 0 46.84 19.83Q840-773.67 840-746.67v600q0 27-19.83 46.84Q800.33-80 773.33-80H186.67Zm0-66.67h586.66v-420H186.67v420Zm0-486.66h586.66v-113.34H186.67v113.34Zm0 0v-113.34 113.34Z"/></svg>
+                                <span class="tooltip">Impegni</span>
+                            </li>
+                            <li id="sidebar-grafici">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="M120-120v-77.33L186.67-264v144H120Zm163.33 0v-237.33L350-424v304h-66.67Zm163.34 0v-304l66.66 67.67V-120h-66.66ZM610-120v-236.33L676.67-423v303H610Zm163.33 0v-397.33L840-584v464h-66.67ZM120-346.33v-94.34l280-278.66 160 160L840-840v94.33L560-465 400-625 120-346.33Z"/></svg>
+                                <span class="tooltip">Grafici</span>
+                            </li>
+                            <li id="sidebar-impostazioni">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="m382-80-18.67-126.67q-17-6.33-34.83-16.66-17.83-10.34-32.17-21.67L178-192.33 79.33-365l106.34-78.67q-1.67-8.33-2-18.16-.34-9.84-.34-18.17 0-8.33.34-18.17.33-9.83 2-18.16L79.33-595 178-767.67 296.33-715q14.34-11.33 32.34-21.67 18-10.33 34.66-16L382-880h196l18.67 126.67q17 6.33 35.16 16.33 18.17 10 31.84 22L782-767.67 880.67-595l-106.34 77.33q1.67 9 2 18.84.34 9.83.34 18.83 0 9-.34 18.5Q776-452 774-443l106.33 78-98.66 172.67-118-52.67q-14.34 11.33-32 22-17.67 10.67-35 16.33L578-80H382Zm55.33-66.67h85l14-110q32.34-8 60.84-24.5T649-321l103.67 44.33 39.66-70.66L701-415q4.33-16 6.67-32.17Q710-463.33 710-480q0-16.67-2-32.83-2-16.17-7-32.17l91.33-67.67-39.66-70.66L649-638.67q-22.67-25-50.83-41.83-28.17-16.83-61.84-22.83l-13.66-110h-85l-14 110q-33 7.33-61.5 23.83T311-639l-103.67-44.33-39.66 70.66L259-545.33Q254.67-529 252.33-513 250-497 250-480q0 16.67 2.33 32.67 2.34 16 6.67 32.33l-91.33 67.67 39.66 70.66L311-321.33q23.33 23.66 51.83 40.16 28.5 16.5 60.84 24.5l13.66 110Zm43.34-200q55.33 0 94.33-39T614-480q0-55.33-39-94.33t-94.33-39q-55.67 0-94.5 39-38.84 39-38.84 94.33t38.84 94.33q38.83 39 94.5 39ZM480-480Z"/></svg>
+                                <span class="tooltip">Impostazioni</span>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!--MainBar-->
+                    <main class="main-container">
+
+                        <!--MainHeader-->
+                        <div class="main-header">
+                            <div class="logo-container">
+                                <div class="logo-image">
+                                    <img src="images/main icons/logo/Logo2.png" class="logo" height="60px" alt="logo">
+                                </div>
+                                <div class="logo-name">
+                                    <p>StudyPlanner</p>
+                                </div>
+                            </div>
+                            <div class="user-container">
+                                <div class="user-name">
+                                    <p class="userName">';
+
+    $htmlStart .= $_SESSION["user"]["username"];
+
+    $htmlStart .= '</p> <!--max 23 caratteri-->
+                                </div>
+                                <!--
+                                    TODO: aggiungere immagine utente
+                                -->
+                                <img src="images/main icons/defaultImg.png" class="user-image" height="60px" alt="user image">
+                            </div>
+                        </div>
+
+                        <!--MainContent-->
+                        <div class="main-content">';
+
+    echo $htmlStart;
+?>
