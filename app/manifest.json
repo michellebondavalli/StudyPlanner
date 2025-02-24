@@ -3,7 +3,7 @@
   "short_name": "StudyPlanner",
   "description": "Il miglior gestionale scolastico per desktop",
   "start_url": "/app/index.php",
-  "display": "standalone",
+  "display": "minimal-ui",
   "theme_color": "#000000",
   "icons": [
     {

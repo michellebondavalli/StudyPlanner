@@ -29,7 +29,7 @@ $corpo = "
             <!-- HEADER -->
             <tr>
               <td bgcolor='#98bee2' style='padding: 20px; text-align: center;'>
-                <!--<img src='https://studyplanner.altervista.org/images/main icons/logo/Logo2.png' alt='Logo' width='70' style='display: block; margin: 0 auto;'>-->
+                <img src='https://studyplanner.altervista.org/app/images/main%20icons/logo/Logo2.png' alt='Logo' width='70' style='display: block; margin: 0 auto;'>
               </td>
             </tr>
             

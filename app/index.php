@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="images/main icons/logo/Logo2.png" type="image/x-icon">
-        <title>Home</title>
+        <title>StudyPlanner</title>
 
         <!--Bootstrap
         <link href = "
@@ -107,7 +107,85 @@
 
 
                     <!--Inizio Contenitore Home-->
-                    <div class="main-content-home"></div>
+                    <div class="main-content-home">
+                        <table class="home-orario">
+                            <thead>
+                                <th></th>
+                                <th>Lunedì</th>
+                                <th>Martedi</th>
+                                <th>Mercoledì</th>
+                                <th>Giovedì</th>
+                                <th>Venerdi</th>
+                                <th>Sabato</th>
+                            </thead>
+                            <tbody id="tbody-orario">
+                                <?php
+                                    for ($i = 1; $i < 7; $i++) {
+                                        echo "\t\t\t\t\t\t\t\t<tr> \r";
+                                        echo "\t\t\t\t\t\t\t\t\t<td>" . $i . "° ora</td> \n";
+                                        for ($j = 0; $j < 6; $j++) {
+                                            echo "\t\t\t\t\t\t\t\t\t\t<td class='td-orario'></td> \n";
+                                        }
+                                        echo "\t\t\t\t\t\t\t\t</tr> \n";
+                                    }
+                                ?>
+                                <!--<tr>
+                                    <td>1° ora</td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                </tr>
+                                <tr>
+                                    <td>2° ora</td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                </tr>
+                                <tr>
+                                    <td>3° ora</td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                </tr>
+                                <tr>
+                                    <td>4° ora</td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                </tr>
+                                <tr>
+                                    <td>5° ora</td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                </tr>
+                                <tr>
+                                    <td>6° ora</td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                    <td class="td-orario"></td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                    </div>
                     <!--Fine Contenitore Home-->
 
 
@@ -233,11 +311,54 @@
                             <span>alle ore:</span>
                             <input type="time" name="oraFine">
                         </div>
-
+                        <div class="button-box">
+                            <button class="default-button annulla-button" type="reset">Annulla</button>
+                            <input class="default-button" type="submit" value="Aggiungi">
+                        </div>
                     </div>
                 </form>
             </div>
+            <!--fine AggiungiImpegno-->
+
+            <!--AggiungiLezione-->
+            <div class="container-aggiungi-lezione">
+                <div class="div-title">
+                    <p>Aggiungi Lezione</p>
+                    <hr class="hr-calendario">
+                </div>
+                <form action="scripts/aggiungiLezione.php" method="POST" class="form-aggiungi-impegno">
+                    <div class="content-aggiungi-lezione">
+
+                        <input type="hidden" name="dataLezione" class="aggiungi-lezione-giorno">
+                        <input type="hidden" name="oraLezione" class="aggiungi-lezione-ora">
+
+                        <div class="inputBox">
+                            <input id="inputBoxNomeLezione" type="text" name="nomeLezione" placeholder="Nome">
+                        </div>
+
+                        <div class="colors-box">
+                            <span>Colore</span>
+                            <input type="radio" class="colors" id="color1" name="color" value="--azzurro-sfondo" checked>
+                            <input type="radio" class="colors" id="color2" name="color" value="--verde-acqua">
+                            <input type="radio" class="colors" id="color3" name="color" value="--rosino">
+                            <input type="radio" class="colors" id="color4" name="color" value="--verdino">
+                            <input type="radio" class="colors" id="color5" name="color" value="--lilla">
+                            <input type="radio" class="colors" id="color6" name="color" value="--albicocca">
+                            <input type="radio" class="colors" id="color7" name="color" value="--giallino">
+                            <input type="radio" class="colors" id="color8" name="color" value="--corallo">
+                        </div>
+
+                        <div class="button-box">
+                            <button class="default-button annulla-button" type="reset">Annulla</button>
+                            <input class="default-button" id="aggiungi-lezione-button" type="submit" value="Aggiungi">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--fine AggiungiLezione-->
         </div>
+        
+        <script src="scripts/homeView.js"></script>
         <script src="scripts/rendercalendar.js"></script>
         <script src="scripts/changingpage.js"></script>
         <script src="scripts/funzioniJS.js"></script>

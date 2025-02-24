@@ -56,7 +56,14 @@
 
     //controllo se l'utente vuole essere ricordato
     //if($_POST["remember"] == "on"){
-        $_SESSION["user"] = ["username" => explode("@", $row["email"])[0]];
+        $_SESSION["user"] = [
+            "id" => $row["ID"],
+            "username" => explode("@", $row["email"])[0],
+            "email" => $row["email"],
+            "nome" => $row["nome"],
+            "cognome" => $row["cognome"],
+            "imgProfilo" => $row["imgProfilo"]
+        ];
     //}
 
     header("Location: ../index.php");

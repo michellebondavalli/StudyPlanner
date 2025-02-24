@@ -33,7 +33,7 @@
             </div>
             <form action="scripts/loginAuth.php" method="POST">
                 <div class="inputBox">
-                    <input type="email" name="email" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                    <input type="email" name="email" required onkeyup="this.setAttribute('value', this.value);" value="">
                     <label>Email</label>
                 </div>
 
@@ -59,6 +59,7 @@
                 <input type="submit" name="accedi" value="Accedi">
             </form>
 
+            <p>Password dimenticata? <a href="ripristinoPassword.php">Ripristina</a></p>
             <p>Non hai ancora un account? <a href="registrazione.php">Registrati</a></p>
         </div>
     </body>

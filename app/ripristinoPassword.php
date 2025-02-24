@@ -11,13 +11,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="images/main icons/logo/Logo2.png" type="image/x-icon">
-        <title>Registrazione</title>
+        <title>Ripristino Password</title>
 
         <link rel="stylesheet" href="styles/forms.css">
         <link rel="stylesheet" href="styles/globalvariables.css">
         <link rel="stylesheet" href="styles/generalstyle.css">
 
-        <!--Fonts-->
+         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href = "
@@ -31,46 +31,33 @@
                 <img src="images/main icons/logo/Logo2.png" height="60px" alt="logo">
                 <h1>StudyPlanner</h1>
             </div>
-            
-            <form action="scripts/registrationConfirm.php" method="POST">
-                <div class="inputBox">
-                    <input type="text" name="nome" required onkeyup="this.setAttribute('value', this.value);" value="">
-                    <label>Nome</label>
-                </div>
+            <form action="scripts/updatePasswordMail.php" method="POST">
 
-                <div class="inputBox">
-                    <input type="text" name="cognome" required onkeyup="this.setAttribute('value', this.value);" value="">
-                    <label>Cognome</label>
-                </div>
-
+                <p>Inserisci la email dell' account di cui vuoi ripristinare la password</p>
+                <br>
                 <div class="inputBox">
                     <input type="email" name="email" required onkeyup="this.setAttribute('value', this.value);" value="">
                     <label>Email</label>
                 </div>
 
-                <div class="inputBox">
-                    <input type="password" name="pwd" required onkeyup="this.setAttribute('value', this.value);" value="">
-                    <label>Password</label>
-                </div>
-
-                <div class="inputBox">
-                    <input type="password" name="confPwd" required onkeyup="this.setAttribute('value', this.value);" value="">
-                    <label>Conferma password</label>
-                </div>
-
                 <div class="form-error"><?php
-                    /*print_r($_SESSION);
-                    echo "<br><br><br>";*/
-                    if(isset($_SESSION["errorRegistrationConfirm"])) {
-                        echo $_SESSION["errorRegistrationConfirm"];
-                        unset($_SESSION["errorRegistrationConfirm"]);
+                    if(isset($_SESSION["errorPasswordUpdate"])) {
+                        echo $_SESSION["errorPasswordUpdate"];
+                        unset($_SESSION["errorPasswordUpdate"]);
+                    }
+                ?></div>
+
+                <div class="form-success"><?php
+                    if(isset($_SESSION["successPasswordUpdate"])) {
+                        echo $_SESSION["successPasswordUpdate"];
+                        unset($_SESSION["successPasswordUpdate"]);
                     }
                 ?></div>
                 
-                <input type="submit" name="registrati" value="Registrati">
+                <input type="submit" name="accedi" value="Invia Mail">
             </form>
 
-            <p>Hai già un account? <a href="login.php">Accedi</a></p>
+            <p><a href="login.php">Torna indietro</a></p>
         </div>
     </body>
 </html>

@@ -6,7 +6,7 @@
         try {
             $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $DBusername, $DBpassword);
         } catch (PDOException $e) {
-            return false;
+            return NULL;
         }
 
         return $pdo;
