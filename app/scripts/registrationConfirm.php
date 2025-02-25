@@ -21,6 +21,13 @@
     $password = $_POST["pwd"];
     $confermaPassword = $_POST["confPwd"];
 
+    /*controllo password*/
+    if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/", $password)){
+        $_SESSION["errorRegistrationConfirm"] = "è necessario un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale (@ $ ! % * ? & )";
+        header("Location: ../registrazione.php");
+        return;
+    }
+
     if($password != $confermaPassword) {
         $_SESSION["errorRegistrationConfirm"] = "Le password non corrispondono";
         header("Location: ../registrazione.php");

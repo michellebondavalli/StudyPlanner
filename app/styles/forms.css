@@ -51,6 +51,17 @@ h1{
     position: relative;
 }
 
+#password-container{
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    top: 20%;
+    right: 10px;
+    cursor: pointer;
+}
+
 .box .inputBox input {
     width: 87%;
     padding: 1.1rem 25px 1.1rem 25px;

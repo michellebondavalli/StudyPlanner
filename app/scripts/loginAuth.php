@@ -56,6 +56,7 @@
 
     //controllo se l'utente vuole essere ricordato
     //if($_POST["remember"] == "on"){
+        $_SESSION = array();
         $_SESSION["user"] = [
             "id" => $row["ID"],
             "username" => explode("@", $row["email"])[0],
