@@ -1,0 +1,54 @@
+/* Stile per il background scuro */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Stile per la finestra di dialogo */
+.custom-alert {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    z-index: 1001;
+}
+
+.custom-alert p {
+    margin-bottom: 20px;
+}
+
+.custom-alert button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.confirm-btn {
+    background: var(--corallo);
+    color: white;
+    margin-right: 10px;
+}
+
+.confirm-btn:hover {
+    background: var(--rosso);
+}
+
+.cancel-btn {
+    background: var(--azzurro-sfondo);
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: var(--blu-icona-hover);
+}

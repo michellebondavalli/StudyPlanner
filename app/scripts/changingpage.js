@@ -4,10 +4,15 @@ $(document).ready(function() {
     $('.main-content-grafici').hide();
     $('.main-content-impostazioni').hide();
     $('.main-content-account').hide();
+    sidebarButtonPrecedente = $("#ul li.active");
 
     $('ul li').click(function() {
-        $('li').removeClass('active');
-        $(this).addClass('active');
+        
+        if($(this).attr('id') != 'sidebar-logout') {
+            $('li').removeClass('active');
+            $(this).addClass('active');
+        }
+
         if ($(this).attr('id') == 'sidebar-home') {
             $('.main-content-home').fadeIn(500);
             $('.main-content-impegni').hide();

@@ -159,6 +159,15 @@
 	font-size: xx-large;
 }
 
+.elimina-button{
+	background-color: var(--corallo) !important;
+}
+
+.elimina-button:hover{
+	background-color: var(--rosso) !important;
+	box-shadow: none !important;
+}
+
 .main-content-calendario-todolist{
 	margin-left: 20px;
 	height: 100%;
@@ -302,4 +311,51 @@
 .default-button:hover {
     background-color: var(--blu-icona-hover);
     box-shadow: 0 1px 1px 0 rgba(66,133,244,0.45), 0 1px 3px 1px rgba(66,133,244,0.3);
+}
+
+/*-------------------------------------------------------------Inizio Impostazioni----------------------------------------------------------------*/
+
+.main-content-impostazioni{
+	height: 100%;
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.impostazioni-account, .impostazioni-applicazione{
+	height: 100%;
+	background-color: var(--bianco);
+	box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
+	flex-grow: 0.45;
+	border-radius: 30px;
+	margin: 0 20px;
+	flex-basis: 0;
+	display:flex;
+	flex-direction: column;
+}
+
+
+.content-account div{
+	margin-top: 20px;
+	display:flex;
+	align-items: center;
+}
+
+.content-account label{
+	font-weight: 620;
+	margin-left: 50px;
+}
+
+.content-account p{
+	margin-left: 20px;
+	display: inline;
+}
+
+#modifica-account-button{
+	margin-left: 50px;
+	margin-top: 20px;
+	text-align: center;
+	padding: 5px;
+	width:120px;
+	margin-right: 20px;
 }

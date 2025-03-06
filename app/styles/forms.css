@@ -66,11 +66,11 @@ h1{
     width: 87%;
     padding: 1.1rem 25px 1.1rem 25px;
     font-size: 1rem;
-   letter-spacing: 0.062rem;
-   margin-bottom: 1.875rem;
-   border: 1px solid #ccc;
-   background: transparent;
-   border-radius: 30px;
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 30px;
 }
 
 .box .inputBox label {
@@ -84,9 +84,16 @@ h1{
     transition: 0.2s;
 }
 
+.box .inputBox input:-webkit-autofill {
+    font-family: "Poppins", serif !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
+}
+
 .box .inputBox input:focus ~ label,
 .box .inputBox input:valid ~ label,
-.box .inputBox input:not([value=""]) ~ label {
+.box .inputBox input:not([value=""]) ~ label,
+.box .inputBox input:-webkit-autofill ~ label {
     top: -0.9rem;
     left: 23px;
     color: var(--blu-icona-hover);
@@ -300,4 +307,13 @@ h1{
     display: flex;
     justify-content: right;
     margin: 30px 10%;
+}
+
+.spacer{
+    flex-grow: 1;
+}
+
+.elimina-button{
+	background-color: var(--corallo) !important;
+    margin-left: 2px !important;
 }

@@ -1,14 +1,23 @@
+var oraOrario = 0;
+var giornoOrario = 0;
+var sidebarButtonPrecedente = "";
+
 $(document).ready(function() {
+
     
     $("#add-button-calendario").click(function() {
         $(".container-aggiungi-impegno").fadeIn(500);
         $(".container-aggiungi-impegno-background").fadeIn(500);
     });
 
+
+
     $(".container-aggiungi-impegno-background").click(function() {
         $(".container-aggiungi-impegno").hide();
         $(".container-aggiungi-impegno-background").hide();
     });
+
+
 
     $(".annulla-button").click(function() {
         $(".container-aggiungi-lezione").fadeOut(500);
@@ -19,11 +28,16 @@ $(document).ready(function() {
         */
     });
 
+
+
     $(".container-aggiungi-impegno-background").click(function() {
         $(".container-aggiungi-lezione").fadeOut(500);
         $(".container-aggiungi-impegno").fadeOut(500);
         $(".container-aggiungi-impegno-background").fadeOut(500);
     });
+
+
+
 
     $(".td-orario").click(function() {
         $(".container-aggiungi-lezione").fadeIn(500);
@@ -39,8 +53,10 @@ $(document).ready(function() {
         }
 
         const giorno = giorni[$(this).index()];
+        giornoOrario = giorno;
     
         let firstChar = $(this).closest('tr').find('td:first').text().charAt(0);
+        oraOrario = firstChar;
 
         $(".aggiungi-lezione-giorno").val(giorno);
         $(".aggiungi-lezione-ora").val(firstChar);
@@ -48,9 +64,59 @@ $(document).ready(function() {
         if($(this).html() != "") {
             $("#aggiungi-lezione-button").val("Modifica");
             $("#inputBoxNomeLezione").val($(this).html());
+            
+            let colore = $(this).css("background-color");
+            result = colore.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+
+            // Converti i valori R, G, B in esadecimale e restituisci la stringa
+            var r = parseInt(result[1]).toString(16);
+            var g = parseInt(result[2]).toString(16);
+            var b = parseInt(result[3]).toString(16);
+            let exadecimal = "#" + (r.length == 1 ? "0" + r : r) + (g.length == 1 ? "0" + g : g) + (b.length == 1 ? "0" + b : b);
+            
+            const colors = {
+                "#fffcf8": "bianco",
+                "#d6e8f7": "azzurro-hover",
+                "#98bee2": "azzurro-sfondo",
+                "#d6e8f7": "azzurro-sfondo-form",
+                "#185ee0": "blu-icona-hover",
+                "#185ee04d": "blu-ombra-item",
+                "#98e2e0": "verde-acqua",
+                "#f5a9b4": "rosino",
+                "#bde0b9": "verdino",
+                "#ddb4e1": "lilla",
+                "#f2a252": "albicocca",
+                "#ffdb63": "giallino",
+                "#dd4d4a": "corallo"
+            };
+
+            $('.colors-box input[type="radio"][value="--azzurro-sfondo"]').prop('checked', false);
+            $('.colors-box input[type="radio"][value="--' + colors[exadecimal] + '"]').prop('checked', true);
         } else {
+            $('.colors-box input[type="radio"][value="--azzurro-sfondo"]').prop('checked', true);
             $("#aggiungi-lezione-button").val("Aggiungi");
             $("#inputBoxNomeLezione").val("");
         }
+    });
+
+    $("#sidebar-logout").click(function() {
+        // Mostra l'alert
+        $("#alertOverlay").fadeIn();
+    });
+    
+    // Bottone "Conferma"
+    $("#confirmBtn").click(function() {
+        $("#alertOverlay").fadeOut();
+
+        let RequestAJAX = new XMLHttpRequest();
+        RequestAJAX.open("GET", "scripts/logout.php");
+        RequestAJAX.send();
+
+        window.location.href = "login.php";
+    });
+
+    // Bottone "Annulla"
+    $("#cancelBtn").click(function() {
+        $("#alertOverlay").fadeOut();
     });
 });

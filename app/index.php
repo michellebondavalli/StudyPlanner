@@ -42,6 +42,7 @@
         <link rel="stylesheet" href="styles/dayselector.css">
         <link rel="stylesheet" href="styles/scrollbar.css">
         <link rel="stylesheet" href="styles/forms.css">
+        <link rel="stylesheet" href="styles/alert.css">
 
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,6 +76,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="m382-80-18.67-126.67q-17-6.33-34.83-16.66-17.83-10.34-32.17-21.67L178-192.33 79.33-365l106.34-78.67q-1.67-8.33-2-18.16-.34-9.84-.34-18.17 0-8.33.34-18.17.33-9.83 2-18.16L79.33-595 178-767.67 296.33-715q14.34-11.33 32.34-21.67 18-10.33 34.66-16L382-880h196l18.67 126.67q17 6.33 35.16 16.33 18.17 10 31.84 22L782-767.67 880.67-595l-106.34 77.33q1.67 9 2 18.84.34 9.83.34 18.83 0 9-.34 18.5Q776-452 774-443l106.33 78-98.66 172.67-118-52.67q-14.34 11.33-32 22-17.67 10.67-35 16.33L578-80H382Zm55.33-66.67h85l14-110q32.34-8 60.84-24.5T649-321l103.67 44.33 39.66-70.66L701-415q4.33-16 6.67-32.17Q710-463.33 710-480q0-16.67-2-32.83-2-16.17-7-32.17l91.33-67.67-39.66-70.66L649-638.67q-22.67-25-50.83-41.83-28.17-16.83-61.84-22.83l-13.66-110h-85l-14 110q-33 7.33-61.5 23.83T311-639l-103.67-44.33-39.66 70.66L259-545.33Q254.67-529 252.33-513 250-497 250-480q0 16.67 2.33 32.67 2.34 16 6.67 32.33l-91.33 67.67 39.66 70.66L311-321.33q23.33 23.66 51.83 40.16 28.5 16.5 60.84 24.5l13.66 110Zm43.34-200q55.33 0 94.33-39T614-480q0-55.33-39-94.33t-94.33-39q-55.67 0-94.5 39-38.84 39-38.84 94.33t38.84 94.33q38.83 39 94.5 39ZM480-480Z"/></svg>
                         <span class="tooltip">Impostazioni</span>
                     </li>
+                    <li id="sidebar-logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg>
+                        <span class="tooltip">logout</span>
+                    </li>
                 </ul>
             </nav>
 
@@ -95,10 +100,13 @@
                         <div class="user-name">
                             <p class="userName"><?php echo $_SESSION["user"]["username"]; ?></p> <!--max 23 caratteri-->
                         </div>
-                        <!--
-                            TODO: aggiungere immagine utente
-                        -->
-                        <img src="images/main icons/defaultImg.png" class="user-image" height="60px" alt="user image">
+                        <img src="images/usersImg/<?php 
+                            if(!isset($_SESSION['user']['imgProfilo'])) {
+                                echo "defaultImg.png";
+                            } else {
+                                echo $_SESSION['user']['id'] . "." . $_SESSION['user']['imgProfilo']; 
+                            }
+                        ?>" class="user-image" height="60px" alt="user image">
                     </div>
                 </div>
 
@@ -263,13 +271,38 @@
 
 
                     <!--InizioContenitore Impostazioni-->
-                    <div class="main-content-impostazioni"></div>
+                    <div class="main-content-impostazioni">
+                        <div class="impostazioni-account">
+                            <div class="div-title">
+                                Impostazioni account
+                                <hr class="hr-calendario">
+                            </div>
+                            <div class="content-account">
+                                <div><label for="nome-impostazioni">Nome: </label> 
+                                    <p><?php echo $_SESSION["user"]["nome"]; ?></p>
+                                </div>
+                                <div><label for="cognome-impostazioni">Cognome: </label> 
+                                    <p> <?php echo $_SESSION["user"]["cognome"]; ?></p>
+                                </div>
+                                <div><label for="email-impostazioni">Email: </label> 
+                                    <p> <?php echo $_SESSION["user"]["email"]; ?></p> 
+                                </div>
+                                <button id="modifica-account-button" class="default-button" value="Modifica">Modifica</button>
+                            </div>
+                        </div>
+
+                        <div class="impostazioni-applicazione">
+                            <div class="div-title">
+                                Impostazioni applicazione
+                                <hr class="hr-calendario">
+                            </div>
+                            <div class="content-applicazione">
+                                
+                            </div>
+                        </div>
+                    </div>
                     <!--FineContenitore Impostazioni-->
 
-                    
-                    <!--InizioContenitore Account-->
-                    <div class="main-content-account"></div>
-                    <!--FineContenitore Account-->
                 </div>
             </main>
 
@@ -349,6 +382,8 @@
                         </div>
 
                         <div class="button-box">
+                            <button type="button" class="default-button elimina-button">Elimina</button>
+                            <div class="spacer"></div>
                             <button class="default-button annulla-button" type="reset">Annulla</button>
                             <input class="default-button" id="aggiungi-lezione-button" type="submit" value="Aggiungi">
                         </div>
@@ -356,11 +391,21 @@
                 </form>
             </div>
             <!--fine AggiungiLezione-->
+
+            
+            <!-- Overlay per l'alert -->
+            <div class="overlay" id="alertOverlay">
+                <div class="custom-alert">
+                    <p>Sei sicuro di voler uscire dal tuo account?</p>
+                    <button class="confirm-btn" id="confirmBtn">Conferma</button>
+                    <button class="cancel-btn" id="cancelBtn">Annulla</button>
+                </div>
+            </div>
         </div>
-        
+
+        <script src="scripts/funzioniJS.js"></script>
         <script src="scripts/homeView.js"></script>
         <script src="scripts/rendercalendar.js"></script>
         <script src="scripts/changingpage.js"></script>
-        <script src="scripts/funzioniJS.js"></script>
     </body>
 </html>

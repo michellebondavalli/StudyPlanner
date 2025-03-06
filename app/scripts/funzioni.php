@@ -1,5 +1,4 @@
-<?php 
-
+<?php
     function pdoConnection() {
         require_once("config.php");
         
@@ -11,5 +10,4 @@
 
         return $pdo;
     }
-
 ?>
