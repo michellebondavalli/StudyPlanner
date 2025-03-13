@@ -26,7 +26,11 @@
     margin-bottom: 20px;
 }
 
-.custom-alert button {
+.custom-alert form {
+    display: inline;
+}
+
+.custom-alert button, .custom-alert form input{
     padding: 10px 20px;
     border: none;
     cursor: pointer;

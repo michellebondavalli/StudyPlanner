@@ -5,6 +5,9 @@
         header("Location: login.php");
         return;
     }
+    if(!isset($_SESSION["actualPage"])){
+        $_SESSION["actualPage"] = "sidebar-home";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -35,14 +38,14 @@
         "></script>
 
         <!--Style-->
-        <link rel="stylesheet" href="styles/globalvariables.css">
-        <link rel="stylesheet" href="styles/generalstyle.css">
-        <link rel="stylesheet" href="styles/sidebarstyle.css">
-        <link rel="stylesheet" href="styles/calendarviewstyle.css">
-        <link rel="stylesheet" href="styles/dayselector.css">
-        <link rel="stylesheet" href="styles/scrollbar.css">
-        <link rel="stylesheet" href="styles/forms.css">
-        <link rel="stylesheet" href="styles/alert.css">
+        <link rel="stylesheet" href="styles/globalvariables.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/generalstyle.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/sidebarstyle.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/calendarviewstyle.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/dayselector.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/scrollbar.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/forms.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/alert.css?v=<?php echo time(); ?>">
 
         <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,19 +63,19 @@
             <!--Sidebar-->
             <nav class="sidebar-navigation">
                 <ul>
-                    <li class="active" id="sidebar-home">
+                    <li <?php if($_SESSION["actualPage"] == "sidebar-home") echo "class='active'";?> id="sidebar-home">
                         <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="M226.67-186.67h140v-246.66h226.66v246.66h140v-380L480-756.67l-253.33 190v380ZM160-120v-480l320-240 320 240v480H526.67v-246.67h-93.34V-120H160Zm320-352Z"/></svg>
                         <span class="tooltip">Home</span>
                     </li>
-                    <li id="sidebar-impegni">
+                    <li <?php if($_SESSION["actualPage"] == "sidebar-impegni") echo "class='active'";?> id="sidebar-impegni">
                         <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="M186.67-80q-27 0-46.84-19.83Q120-119.67 120-146.67v-600q0-27 19.83-46.83 19.84-19.83 46.84-19.83h56.66V-880h70v66.67h333.34V-880h70v66.67h56.66q27 0 46.84 19.83Q840-773.67 840-746.67v600q0 27-19.83 46.84Q800.33-80 773.33-80H186.67Zm0-66.67h586.66v-420H186.67v420Zm0-486.66h586.66v-113.34H186.67v113.34Zm0 0v-113.34 113.34Z"/></svg>
                         <span class="tooltip">Impegni</span>
                     </li>
-                    <li id="sidebar-grafici">
+                    <li <?php if($_SESSION["actualPage"] == "sidebar-grafici") echo "class='active'";?> id="sidebar-grafici">
                         <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="M120-120v-77.33L186.67-264v144H120Zm163.33 0v-237.33L350-424v304h-66.67Zm163.34 0v-304l66.66 67.67V-120h-66.66ZM610-120v-236.33L676.67-423v303H610Zm163.33 0v-397.33L840-584v464h-66.67ZM120-346.33v-94.34l280-278.66 160 160L840-840v94.33L560-465 400-625 120-346.33Z"/></svg>
                         <span class="tooltip">Grafici</span>
                     </li>
-                    <li id="sidebar-impostazioni">
+                    <li <?php if($_SESSION["actualPage"] == "sidebar-impostazioni") echo "class='active'";?> id="sidebar-impostazioni">
                         <svg xmlns="http://www.w3.org/2000/svg" height="33px" viewBox="0 -960 960 960" width="33px" fill="var(--blu-icona-hover)"><path d="m382-80-18.67-126.67q-17-6.33-34.83-16.66-17.83-10.34-32.17-21.67L178-192.33 79.33-365l106.34-78.67q-1.67-8.33-2-18.16-.34-9.84-.34-18.17 0-8.33.34-18.17.33-9.83 2-18.16L79.33-595 178-767.67 296.33-715q14.34-11.33 32.34-21.67 18-10.33 34.66-16L382-880h196l18.67 126.67q17 6.33 35.16 16.33 18.17 10 31.84 22L782-767.67 880.67-595l-106.34 77.33q1.67 9 2 18.84.34 9.83.34 18.83 0 9-.34 18.5Q776-452 774-443l106.33 78-98.66 172.67-118-52.67q-14.34 11.33-32 22-17.67 10.67-35 16.33L578-80H382Zm55.33-66.67h85l14-110q32.34-8 60.84-24.5T649-321l103.67 44.33 39.66-70.66L701-415q4.33-16 6.67-32.17Q710-463.33 710-480q0-16.67-2-32.83-2-16.17-7-32.17l91.33-67.67-39.66-70.66L649-638.67q-22.67-25-50.83-41.83-28.17-16.83-61.84-22.83l-13.66-110h-85l-14 110q-33 7.33-61.5 23.83T311-639l-103.67-44.33-39.66 70.66L259-545.33Q254.67-529 252.33-513 250-497 250-480q0 16.67 2.33 32.67 2.34 16 6.67 32.33l-91.33 67.67 39.66 70.66L311-321.33q23.33 23.66 51.83 40.16 28.5 16.5 60.84 24.5l13.66 110Zm43.34-200q55.33 0 94.33-39T614-480q0-55.33-39-94.33t-94.33-39q-55.67 0-94.5 39-38.84 39-38.84 94.33t38.84 94.33q38.83 39 94.5 39ZM480-480Z"/></svg>
                         <span class="tooltip">Impostazioni</span>
                     </li>
@@ -128,16 +131,16 @@
                             </thead>
                             <tbody id="tbody-orario">
                                 <?php
-                                    for ($i = 1; $i < 7; $i++) {
+                                    /*for ($i = 1; $i < 7; $i++) {
                                         echo "\t\t\t\t\t\t\t\t<tr> \r";
                                         echo "\t\t\t\t\t\t\t\t\t<td>" . $i . "° ora</td> \n";
                                         for ($j = 0; $j < 6; $j++) {
                                             echo "\t\t\t\t\t\t\t\t\t\t<td class='td-orario'></td> \n";
                                         }
                                         echo "\t\t\t\t\t\t\t\t</tr> \n";
-                                    }
+                                    }*/
                                 ?>
-                                <!--<tr>
+                                <tr>
                                     <td>1° ora</td>
                                     <td class="td-orario"></td>
                                     <td class="td-orario"></td>
@@ -190,7 +193,7 @@
                                     <td class="td-orario"></td>
                                     <td class="td-orario"></td>
                                     <td class="td-orario"></td>
-                                </tr>-->
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -289,6 +292,7 @@
                                 </div>
                                 <button id="modifica-account-button" class="default-button" value="Modifica">Modifica</button>
                             </div>
+                            <div><button id="elimina-account-button" class="default-button" value="Modifica">Elimina account</button></div>
                         </div>
 
                         <div class="impostazioni-applicazione">
@@ -297,7 +301,9 @@
                                 <hr class="hr-calendario">
                             </div>
                             <div class="content-applicazione">
-                                
+                                <button class="default-button" id="esporta-orario-button">Esporta orario</button>
+                                <input type="file" class="default-button" id="fileInput" accept=".json">
+                                <button class="default-button" id="importa-orario-button">Importa orario</button>
                             </div>
                         </div>
                     </div>
@@ -326,11 +332,14 @@
 
                         <div class="colors-box">
                             <span>Colore</span>
-                            <input type="radio" class="colors" id="color1" name="color" checked>
-                            <input type="radio" class="colors" id="color2" name="color">
-                            <input type="radio" class="colors" id="color3" name="color">
-                            <input type="radio" class="colors" id="color4" name="color">
-                            <input type="radio" class="colors" id="color5" name="color">
+                            <input type="radio" class="colors" id="color1" name="color" value="--azzurro-sfondo" checked>
+                            <input type="radio" class="colors" id="color2" name="color" value="--verde-acqua">
+                            <input type="radio" class="colors" id="color3" name="color" value="--rosino">
+                            <input type="radio" class="colors" id="color4" name="color" value="--verdino">
+                            <input type="radio" class="colors" id="color5" name="color" value="--lilla">
+                            <input type="radio" class="colors" id="color6" name="color" value="--albicocca">
+                            <input type="radio" class="colors" id="color7" name="color" value="--giallino">
+                            <input type="radio" class="colors" id="color8" name="color" value="--corallo">
                         </div>
                         
                         <div class="day-selector-box">
@@ -397,15 +406,27 @@
             <div class="overlay" id="alertOverlay">
                 <div class="custom-alert">
                     <p>Sei sicuro di voler uscire dal tuo account?</p>
-                    <button class="confirm-btn" id="confirmBtn">Conferma</button>
+                    <form action="scripts/logout.php" method="put">
+                        <input class="confirm-btn" id="confirmBtn" value="Conferma" type="submit">
+                    </form>
                     <button class="cancel-btn" id="cancelBtn">Annulla</button>
+                </div>
+            </div>
+            <!-- Overlay per l'alert elimina account-->
+            <div class="overlay" id="alertOverlay-account">
+                <div class="custom-alert">
+                    <p>Sei sicuro di voler eliminare il tuo account?</p>
+                    <form action="scripts/deleteAccount.php" method="delete">
+                        <input class="confirm-btn" id="confirmBtn-account" value="Conferma" type="submit">
+                    </form>
+                    <button class="cancel-btn" id="cancelBtn-account">Annulla</button>
                 </div>
             </div>
         </div>
 
-        <script src="scripts/funzioniJS.js"></script>
-        <script src="scripts/homeView.js"></script>
-        <script src="scripts/rendercalendar.js"></script>
-        <script src="scripts/changingpage.js"></script>
+        <script src="scripts/funzioniJS.js?v=<?php echo time(); ?>"></script>
+        <script src="scripts/homeView.js?v=<?php echo time(); ?>"></script>
+        <script src="scripts/rendercalendar.js?v=<?php echo time(); ?>"></script>
+        <script src="scripts/changingpage.js?v=<?php echo time(); ?>"></script>
     </body>
 </html>

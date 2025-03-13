@@ -13,9 +13,9 @@
         <link rel="icon" href="images/main icons/logo/Logo2.png" type="image/x-icon">
         <title>Ripristino Password</title>
 
-        <link rel="stylesheet" href="styles/forms.css">
-        <link rel="stylesheet" href="styles/globalvariables.css">
-        <link rel="stylesheet" href="styles/generalstyle.css">
+        <link rel="stylesheet" href="styles/forms.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/globalvariables.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="styles/generalstyle.css?v=<?php echo time(); ?>">
 
          <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">

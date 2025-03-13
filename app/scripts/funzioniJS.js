@@ -99,24 +99,35 @@ $(document).ready(function() {
         }
     });
 
+    // ------------------------Bottone "Logout"
     $("#sidebar-logout").click(function() {
         // Mostra l'alert
         $("#alertOverlay").fadeIn();
     });
-    
+
     // Bottone "Conferma"
     $("#confirmBtn").click(function() {
         $("#alertOverlay").fadeOut();
-
-        let RequestAJAX = new XMLHttpRequest();
-        RequestAJAX.open("GET", "scripts/logout.php");
-        RequestAJAX.send();
-
-        window.location.href = "login.php";
     });
 
     // Bottone "Annulla"
     $("#cancelBtn").click(function() {
         $("#alertOverlay").fadeOut();
+    });
+
+    // ------------------ Bottone "Elimina Account"
+    $("#elimina-account-button").click(function() {
+        // Mostra l'alert
+        $("#alertOverlay-account").fadeIn();
+    });
+
+    // Bottone "Conferma"
+    $("#confirmBtn-account").click(function() {
+        $("#alertOverlay-account").fadeOut();
+    });
+
+    // Bottone "Annulla"
+    $("#cancelBtn-account").click(function() {
+        $("#alertOverlay-account").fadeOut();
     });
 });

@@ -106,6 +106,7 @@
 .td-orario:hover{
 	background-color: var(--azzurro-sfondo-form);
 }
+
 /*----------------------------------------------------------Fine sezione home---------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------Inizio sezione impegni----------------------------------------------------------------------*/
@@ -358,4 +359,18 @@
 	padding: 5px;
 	width:120px;
 	margin-right: 20px;
+}
+
+#elimina-account-button{
+    background: var(--corallo);
+    color: white;
+    margin-left: 50px;
+	margin-top: 20px;
+	text-align: center;
+	padding: 5px 20px;
+}
+
+#elimina-account-button:hover {
+    background: var(--rosso);
+	box-shadow: 0 1px 1px 0 rgba(214, 36, 36, 0.3), 0 1px 3px 1px rgba(214, 36, 36, 0.3);
 }
