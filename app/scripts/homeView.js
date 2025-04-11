@@ -12,7 +12,7 @@ $(document).ready(function() {
         orarioDELETE(oraOrario, giornoOrario);
         $(".container-aggiungi-lezione").fadeOut(500);
         $(".container-aggiungi-impegno-background").fadeOut(500);
-        setInterval(function() { orarioHTTPRequest(); }, 500);
+        setTimeout(orarioHTTPRequest, 300);
     });
 
     $('#esporta-orario-button').click(function() {
@@ -32,10 +32,9 @@ $(document).ready(function() {
                     // Parso il contenuto JSON del file
                     var jsonData = JSON.parse(e.target.result);
 
-                    jsonToOrario(e.target.result);
+                    jsonToOrario(e.target.result, true);
                     
-                    // Puoi anche utilizzare jsonData come desideri
-                    console.log(e.target.result);
+
                 } catch (error) {
                     alert('Errore nel leggere il file JSON: ' + error.message);
                 }
@@ -47,20 +46,37 @@ $(document).ready(function() {
             alert('Per favore carica un file JSON valido.');
         }
     });
+
+    $("#elimina-orario-button").click(function() {
+        giorniMappa = {
+            0: "Lunedì",
+            1: "Martedì",
+            2: "Mercoledì",
+            3: "Giovedì",
+            4: "Venerdì",
+            5: "Sabato"
+        };
+
+        for(var i = 0; i < 6; i++) {
+            for(var j = 0; j < 7; j++) {
+                orarioDELETE(j, giorniMappa[i]);
+            }
+        }
+    });
 });
 
 function orarioHTTPRequest() {
     let RequestAJAX = new XMLHttpRequest();
 
     RequestAJAX.onload = function() {
-        jsonToOrario(this.responseText);
+        jsonToOrario(this.responseText, false);
     }
     
     RequestAJAX.open("GET", "scripts/getOrario.php");
     RequestAJAX.send();
 }
 
-function jsonToOrario(jsonText) {
+function jsonToOrario(jsonText, fileImport) {
     let orarioJSON = JSON.parse(jsonText);
     orarioJSONdownload = jsonText;
     const giorniMappa = {
@@ -87,15 +103,23 @@ function jsonToOrario(jsonText) {
     // Ora impostiamo le celle non modificate a bianco con contenuto vuoto
     $(".td-orario").each(function() {
         if (!celleModificate.has(this)) {
-            $(this).css("background-color", "none");
+            $(this).css("background-color", "white");
             $(this).html("");
         }
     });
+
+    if(fileImport){
+        orarioJSON.forEach(element => {
+            let ajaxRequest = new XMLHttpRequest();
+            ajaxRequest.open("POST", "scripts/aggiungiLezione.php");
+            ajaxRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            ajaxRequest.send("dataLezione=" + element.giorno + "&oraLezione=" + element.ora + "&nomeLezione=" + element.nome + "&color=" + element.colore);
+        });
+    }
 }
 
 function orarioDELETE(ora, giorno) {
     let RequestAJAX = new XMLHttpRequest();
-    console.log("scripts/deleteOrario.php?giorno=" + giorno + "&ora=" + ora);
     
     RequestAJAX.open("GET", "scripts/deleteOrario.php?giorno=" + giorno + "&ora=" + ora);
     RequestAJAX.send();
@@ -109,8 +133,4 @@ function esportaOrario() {
     link.download = 'orario.json';
     link.click();
     URL.revokeObjectURL(url);
-}
-
-function importaOrario(){
-    
 }

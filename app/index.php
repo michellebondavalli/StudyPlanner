@@ -131,16 +131,16 @@
                             </thead>
                             <tbody id="tbody-orario">
                                 <?php
-                                    /*for ($i = 1; $i < 7; $i++) {
+                                    for ($i = 1; $i < 7; $i++) {
                                         echo "\t\t\t\t\t\t\t\t<tr> \r";
                                         echo "\t\t\t\t\t\t\t\t\t<td>" . $i . "° ora</td> \n";
                                         for ($j = 0; $j < 6; $j++) {
                                             echo "\t\t\t\t\t\t\t\t\t\t<td class='td-orario'></td> \n";
                                         }
                                         echo "\t\t\t\t\t\t\t\t</tr> \n";
-                                    }*/
+                                    }
                                 ?>
-                                <tr>
+                                <!--<tr>
                                     <td>1° ora</td>
                                     <td class="td-orario"></td>
                                     <td class="td-orario"></td>
@@ -193,7 +193,7 @@
                                     <td class="td-orario"></td>
                                     <td class="td-orario"></td>
                                     <td class="td-orario"></td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>
@@ -260,14 +260,149 @@
 
                     <!--InizioContenitore Grafici-->
                     <div class="main-content-grafici">
-                        <div class="main-content-intestazione-grafici"></div>
                         <div class="main-content-voti">
-                            <div class="main-content-voti-elenco"></div>
+                            <div class="main-content-voti-elenco">
+                                <div class="div-title">
+                                    Materie
+                                    <hr class="hr-calendario">
+                                </div>
+                                <div class="div-add-button">
+                                        <button class="add-button" id="add-button-materia">+</button>
+                                </div>
+                                <div class="scroll-bar">
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia">7.5</div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia"><span>7.5</span></div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia">7.5</div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia"><span>7.5</span></div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia">7.5</div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia"><span>7.5</span></div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia">7.5</div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia"><span>7.5</span></div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia">7.5</div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia"><span>7.5</span></div>
+                                    </div>
+                                    <div class="elemento-lista-materie">
+                                        <p class="nome-materia">Matematica</p>
+                                        <div class="media-materia">7.5</div>
+                                    </div>
+                                    <div class="filler">
+                                    </div>
+
+                                </div>
+                            </div>
+                            
                             <div class="main-content-voti-centro">
                                 <div class="main-content-voti-grafico"></div>
-                                <div class="main-content-voti-obiettivo"></div>
+                                <div class="main-content-voti-obiettivo">
+                                    <div class="andamento">
+                                        <div class="andamento-materia">
+                                            <p class="nome-materia">Matematica</p>
+                                            <div class="media-materia">7.5</div>
+                                        </div>
+                                        <div>in crescita</div>
+                                    </div>
+                                    <div class="obiettivo">
+                                        <div>
+                                            <p id="p-obiettivo">Imposta obiettivo</p>
+                                            <div class="div-add-button-obiettivo">
+                                                <button class="add-button" id="add-button-obiettivo">+</button>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <button class="dettagli-obiettivo"> Dettagli obiettivo</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="main-content-voti-corrente"></div>
+                            <div class="main-content-voti-corrente">
+                                <div class="div-title">
+                                    materia da estrarre
+                                    <hr class="hr-calendario">
+                                </div>
+                                <div class="div-add-button">
+                                        <button class="add-button" id="add-button-voto">+</button>
+                                </div>
+                                <div class="scroll-bar">
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+                                    <div class="elemento-lista-voti">
+                                        <p class="nome-voto">Interrogazione</p>
+                                        <div class="voto">10-</div>
+                                    </div>
+
+                                    <div class="filler">
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                     <!--FineContenitore Grafici-->
@@ -304,6 +439,7 @@
                                 <button class="default-button" id="esporta-orario-button">Esporta orario</button>
                                 <input type="file" class="default-button" id="fileInput" accept=".json">
                                 <button class="default-button" id="importa-orario-button">Importa orario</button>
+                                <button class="default-button elimina-button" id="elimina-orario-button">Elimina orario</button>
                             </div>
                         </div>
                     </div>
@@ -428,5 +564,7 @@
         <script src="scripts/homeView.js?v=<?php echo time(); ?>"></script>
         <script src="scripts/rendercalendar.js?v=<?php echo time(); ?>"></script>
         <script src="scripts/changingpage.js?v=<?php echo time(); ?>"></script>
+        <script src="scripts/impostazioni.js?v=<?php echo time(); ?>"></script>
+
     </body>
 </html>

@@ -239,6 +239,17 @@
 	box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
 	flex-grow: 0.35;
 	border-radius: 30px;
+	position: relative;
+	flex-basis: 0;
+	max-height: 731px;
+	min-height: 500px;
+}
+
+.scroll-bar{
+	overflow-y: scroll;
+	padding-left: 17px;
+	height: 90%;
+	width: 95%;
 }
 
 .main-content-voti-grafico{
@@ -254,7 +265,82 @@
 	background-color: var(--bianco);
 	box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
 	border-radius: 30px;
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
 }
+
+.elemento-lista-materie, .elemento-lista-voti{
+	font-size: 18px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 15px 0px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.elemento-lista-materie:hover, .elemento-lista-voti:hover{
+	background-color: var(--azzurro-sfondo-form);
+	border-radius: 30px;
+}
+
+
+.media-materia, .voto{
+	background-color: green;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	display: flex;
+    align-items: center; 
+    justify-content: center; 
+    color: white; 
+    
+}
+
+.filler{
+	height: 50px;
+}
+
+.andamento, .obiettivo{
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: row;
+	font-size: 18px;
+	width: 100%;
+}
+
+#p-obiettivo {
+	position: relative;
+}
+
+.andamento-materia{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.dettagli-obiettivo{
+	background-color: var(--azzurro-sfondo);
+	border-radius: 30px;
+	border: none;
+	width: 200px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.div-add-button-obiettivo{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 2;
+}
+
+
 /*------------------------------------------------------------Fine sezione voti---------------------------------------------------------------------*/
 
 /*------------------------------------------------------------Inizio sezione impegno----------------------------------------------------------------*/
@@ -373,4 +459,8 @@
 #elimina-account-button:hover {
     background: var(--rosso);
 	box-shadow: 0 1px 1px 0 rgba(214, 36, 36, 0.3), 0 1px 3px 1px rgba(214, 36, 36, 0.3);
+}
+
+#fileInput{
+	display: none;
 }
