@@ -8,12 +8,16 @@ $(document).ready(function() {
     $("#add-button-calendario").click(function() {
         $(".container-aggiungi-impegno").fadeIn(500);
         $(".container-aggiungi-impegno-background").fadeIn(500);
+        document.querySelector('input[type="submit"]').value = "Aggiungi";
+        $("#idImpegno").val(0);
     });
 
 
 
     $(".container-aggiungi-impegno-background").click(function() {
         $(".container-aggiungi-impegno").hide();
+        $(".container-aggiungi-materia").hide();
+        $(".container-aggiungi-voto").hide();
         $(".container-aggiungi-impegno-background").hide();
     });
 
@@ -22,20 +26,32 @@ $(document).ready(function() {
     $(".annulla-button").click(function() {
         $(".container-aggiungi-lezione").fadeOut(500);
         $(".container-aggiungi-impegno").fadeOut(500);
+        $(".container-aggiungi-materia").fadeOut(500);
+        $(".container-aggiungi-voto").fadeOut(500);
         $(".container-aggiungi-impegno-background").fadeOut(500);
         /*
-            da aggiungere
+            da aggiungere   add-button-obiettivo
         */
     });
-
 
 
     $(".container-aggiungi-impegno-background").click(function() {
         $(".container-aggiungi-lezione").fadeOut(500);
         $(".container-aggiungi-impegno").fadeOut(500);
+        $(".container-aggiungi-materia").fadeOut(500);
+        $(".container-aggiungi-voto").fadeOut(500);
         $(".container-aggiungi-impegno-background").fadeOut(500);
     });
 
+    $("#add-button-materia").click(function() {
+        $(".container-aggiungi-materia").fadeIn(500);
+        $(".container-aggiungi-impegno-background").fadeIn(500);
+    });
+
+    $("#add-button-voto").click(function() {
+        $(".container-aggiungi-voto").fadeIn(500);
+        $(".container-aggiungi-impegno-background").fadeIn(500);
+    });
 
 
 

@@ -8,7 +8,7 @@ $(document).ready(function() {
         }
     });
     
-    $('.elimina-button').click(function() {
+    $('#elimina-lezione-button').click(function() {
         orarioDELETE(oraOrario, giornoOrario);
         $(".container-aggiungi-lezione").fadeOut(500);
         $(".container-aggiungi-impegno-background").fadeOut(500);

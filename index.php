@@ -57,7 +57,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <img src="app/images/main%20icons/logo/Logo2.png" class="logo" height="60px" alt="logo">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php">
             <span>
               StudyPlanner
             </span>
@@ -74,6 +74,9 @@
               </li>
               <li class="nav-item" id="aboutus-reference">
                 <a class="nav-link" href="#aboutusTitle-reference"> About</a>
+              </li>
+              <li class="nav-item logo" id="MethodMind-reference">
+                <a class="nav-link" id="logoLink" href="https://methodmind.altervista.org/MethodMind.php">Method<span class="highlight">Mind</span> <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="app/login.php"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
@@ -207,7 +210,7 @@
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="images/imgBellissima.png" alt="">
           </div>
         </div>
         <div class="col-md-6">
@@ -229,6 +232,45 @@ Unisciti a noi e trasforma il tuo modo di studiare: più organizzazione, meno st
   </section>
 
   <!-- end about section -->
+  <br><br><br>
+  <!-- MethodMind section -->
+
+  <section class="about_section layout_padding" id="methodmindSection">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2 class="logo" id="aboutusTitle-reference">
+          <a class="nav-link" id="logoLink" href="https://methodmind.altervista.org/MethodMind.php">Method<span class="highlight">Mind</span></a>
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="images/about-img.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+               Cos'è
+            </h3>
+            <p>
+              MethodMind è il risultato del nostro impegno come studenti di quinta superiore.
+              Questo progetto finale, (realizzato da Samuele Bertelè e Alessandro Bosco) pensato per il nostro esame, nasce dalla passione per l'apprendimento
+              e il desiderio di aiutare gli altri a ottimizzare il proprio tempo di studio.
+              Con MethodMind, vogliamo dimostrare come le migliori tecniche psicologiche possano essere applicate in modo pratico per raggiungere grandi risultati.
+              Il progetto MethodMind è una piattaforma web innovativa progettata per aiutare gli utenti nella gestione
+              e nell'ottimizzazione della concentrazione e delle tecniche di studio, consentendo di raggiungere risultati concreti
+              e misurabili sia nel percorso professionale che in quello accademico.
+              L'applicazione fornisce un approccio strutturato e intuitivo che permette di selezionare metodologie specifiche,
+              monitorare i progressi nel tempo e migliorare l'efficacia complessiva del proprio lavoro o studio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end MethodMind section -->
 
   <!-- footer section -->
   <section class="footer_section">

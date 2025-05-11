@@ -243,6 +243,7 @@
 	flex-basis: 0;
 	max-height: 731px;
 	min-height: 500px;
+	min-width: 297.05px;
 }
 
 .scroll-bar{
@@ -253,11 +254,12 @@
 }
 
 .main-content-voti-grafico{
-	height: 60%;
 	background-color: var(--bianco);
 	box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
 	border-radius: 30px;
 	margin-bottom: 20px;
+	max-width: 911.55px;
+	max-height: 462.77px;
 }
 
 .main-content-voti-obiettivo{
@@ -275,10 +277,11 @@
 	font-size: 18px;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
-	padding: 15px 0px;
+	justify-content: space-between;
+	padding: 15px 30px;
 	align-items: center;
 	cursor: pointer;
+	margin: 0px 5px;
 }
 
 .elemento-lista-materie:hover, .elemento-lista-voti:hover{
@@ -340,6 +343,9 @@
 	z-index: 2;
 }
 
+.data-voto{
+	display: none;
+}
 
 /*------------------------------------------------------------Fine sezione voti---------------------------------------------------------------------*/
 
@@ -355,7 +361,10 @@
 	display: none;
 }
 
-.container-aggiungi-impegno, .container-aggiungi-lezione{
+.container-aggiungi-impegno,
+ .container-aggiungi-lezione, 
+ .container-aggiungi-materia,
+ .container-aggiungi-voto{
 	background-color: var(--bianco);
 	box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
 	border-radius: 30px;
@@ -372,7 +381,10 @@
 	min-height: 660px;
 }
 
-.content-aggiungi-impegno, .content-aggiungi-lezione{
+.content-aggiungi-impegno, 
+.content-aggiungi-lezione, 
+.content-aggiungi-materia,
+.content-aggiungi-voto{
 	width:100%;
 	height: 100%;
 	display: flex;
@@ -428,13 +440,13 @@
 	align-items: center;
 }
 
-.content-account label{
+.content-account span{
 	font-weight: 620;
 	margin-left: 50px;
 }
 
 .content-account p{
-	margin-left: 20px;
+	margin-left: 10px;
 	display: inline;
 }
 
@@ -463,4 +475,21 @@
 
 #fileInput{
 	display: none;
+}
+
+.impostazioni-img{
+	margin-left: 50px;
+}
+
+/*-------------------------------------------------------------Fine Impostazioni----------------------------------------------------------------*/
+
+/*canvas*/
+#lineChart{
+	width: 100%;
+	height: 100%;
+}
+
+.activeSubject{
+	background-color: var(--azzurro-sfondo-form);
+	border-radius: 30px;
 }

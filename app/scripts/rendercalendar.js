@@ -76,6 +76,8 @@ $(document).ready(function() {
 
     function impegniRequest() {
         let RequestAJAX = new XMLHttpRequest();
+        if(calendar)
+            calendar.removeAllEvents();
     
         RequestAJAX.onload = function() {
             let impegniJSON = JSON.parse(this.responseText);
@@ -104,7 +106,8 @@ $(document).ready(function() {
                     description: evento.descrizione,
                     backgroundColor: colorsInverted[evento.colore],
                     start: evento.dataImpegno + "T" + evento.oraInizio,
-                    end: evento.dataImpegno + "T" + evento.oraFine
+                    end: evento.dataImpegno + "T" + evento.oraFine,
+                    id: evento.ID
                 });
             });
     
@@ -113,4 +116,48 @@ $(document).ready(function() {
         RequestAJAX.open("GET", "scripts/getImpegni.php");
         RequestAJAX.send();
     }
+
+    calendar.on('eventClick', function(info) {
+        // Impedisce la visualizzazione del popup di default
+        info.jsEvent.preventDefault();
+
+        $(".container-aggiungi-impegno").fadeIn(500);
+        $(".container-aggiungi-impegno-background").fadeIn(500);
+
+        const evento = info.event;
+
+        // Riempimento dei campi del form
+        document.getElementById('inputBoxNomeImpegno').value = evento.title;
+        document.getElementById('inputBoxDescrizioneImpegno').value = evento.extendedProps.description;
+        document.getElementById('idImpegno').value = evento.id;
+
+        // Seleziona il radio del colore corrispondente
+        const colore = evento.backgroundColor; // es: "#aabbcc"
+        const colorRadios = document.querySelectorAll('input[name="color"]');
+        colorRadios.forEach(radio => {
+            const cssVar = getComputedStyle(document.documentElement).getPropertyValue(radio.value).trim();
+            if (cssVar === colore) {
+                radio.checked = true;
+            }
+        });
+
+        // Giorno
+        document.querySelector('input[name="dataImpegno"]').value = evento.startStr.slice(0, 10); // formato YYYY-MM-DD
+
+        // Ora inizio/fine
+        document.querySelector('input[name="oraInizio"]').value = evento.startStr.slice(11, 16);
+        document.querySelector('input[name="oraFine"]').value = evento.endStr.slice(11, 16);
+        document.querySelector('input[type="submit"]').value = "Modifica";
+    });
+
+    $('#elimina-impegno-button').click(function() {
+        $(".container-aggiungi-impegno").fadeOut(500);
+        $(".container-aggiungi-impegno-background").fadeOut(500);
+        setTimeout(function() {
+            let RequestAJAX = new XMLHttpRequest();
+            RequestAJAX.open("GET", "scripts/deleteImpegno.php?ID=" + $("#idImpegno").val());
+            RequestAJAX.send();
+            impegniRequest()
+        }, 300);
+    });
 });

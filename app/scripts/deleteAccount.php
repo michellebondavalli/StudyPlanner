@@ -15,6 +15,16 @@
         return;
     }
 
+    $stmt = $pdo->prepare("SELECT * FROM Studente WHERE ID = :id");
+    $stmt->bindValue(":id", $_SESSION["user"]["id"], PDO::PARAM_INT);
+    if($stmt->execute()){
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($result["ID"] != $_SESSION["user"]["id"]){
+            header("Location: logout.php");
+            return;
+        }
+    }
+
     $stmt = $pdo->prepare("DELETE FROM OraLezione WHERE fk_id_studente = :fk_id_studente");
     $stmt->bindValue(":fk_id_studente", $_SESSION["user"]["id"], PDO::PARAM_INT);
     if($stmt->execute()){

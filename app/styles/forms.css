@@ -166,7 +166,8 @@ h1{
 
 .content-aggiungi-impegno .inputBox input,
 .content-aggiungi-impegno .inputBox textarea,
-.content-aggiungi-lezione .inputBox input {
+.content-aggiungi-lezione .inputBox input,
+.content-aggiungi-materia .inputBox input {
     font-size: 1rem;
     letter-spacing: 0.062rem;
     border: 1px solid #ccc;
@@ -177,8 +178,22 @@ h1{
     padding: 16px 25px;
 }
 
+.content-aggiungi-voto .inputBox input{
+    font-size: 1rem;
+    letter-spacing: 0.062rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 30px;
+    resize: none;
+    width: calc(30%);
+    padding: 10px 15px;
+    margin: 0px 10px;
+}
+
 .content-aggiungi-impegno .inputBox,
-.content-aggiungi-lezione .inputBox {
+.content-aggiungi-lezione .inputBox,
+.content-aggiungi-materia .inputBox,
+.content-aggiungi-voto .inputBox  {
     margin-top: 1.875rem;
     margin-left: 10%;
     margin-right: 10%;
@@ -250,13 +265,19 @@ h1{
 }
 
 
-.content-aggiungi-impegno .day-selector-box{
+.content-aggiungi-impegno .day-selector-box,
+.content-aggiungi-voto .day-selector-box{
     display: flex;
 	margin: 30px 12%;
 	align-items: center;
 }
 
-.content-aggiungi-impegno input[type="date"]{
+.content-aggiungi-voto .day-selector-box{
+	margin: 30px 0px;
+}
+
+.content-aggiungi-impegno input[type="date"],
+.content-aggiungi-voto input[type="date"]{
     width: 125px;
     background: transparent;
     border-radius: 30px;
@@ -265,6 +286,7 @@ h1{
 	margin-left:30px;
 }
 
+
 .content-aggiungi-impegno .inputBox input:focus,
 .content-aggiungi-impegno .inputBox textarea:focus,
 .content-aggiungi-impegno input[type="date"]:focus,
@@ -272,7 +294,9 @@ h1{
 .content-aggiungi-lezione .inputBox input:focus,
 .content-aggiungi-lezione .inputBox textarea:focus,
 .content-aggiungi-lezione input[type="date"]:focus,
-.content-aggiungi-lezione input[type="time"]:focus {
+.content-aggiungi-lezione input[type="time"]:focus,
+.content-aggiungi-voto .inputBox input:focus,
+.content-aggiungi-voto input[type="date"]:focus {
     outline: none;
     border: 2px solid var(--blu-icona-hover);
 }
@@ -289,6 +313,13 @@ h1{
 	margin: 30px 12%;
     align-items: center;
 }
+
+.number-selector-box{
+    display: flex;
+    align-items: center;
+    
+}
+
 
 .content-aggiungi-impegno input[type="time"]{
     width: 70px;

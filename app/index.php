@@ -37,6 +37,9 @@
             https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
         "></script>
 
+        <!--ChartJS-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
         <!--Style-->
         <link rel="stylesheet" href="styles/globalvariables.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="styles/generalstyle.css?v=<?php echo time(); ?>">
@@ -270,63 +273,38 @@
                                         <button class="add-button" id="add-button-materia">+</button>
                                 </div>
                                 <div class="scroll-bar">
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia">7.5</div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia"><span>7.5</span></div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia">7.5</div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia"><span>7.5</span></div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia">7.5</div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia"><span>7.5</span></div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia">7.5</div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia"><span>7.5</span></div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia">7.5</div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia"><span>7.5</span></div>
-                                    </div>
-                                    <div class="elemento-lista-materie">
-                                        <p class="nome-materia">Matematica</p>
-                                        <div class="media-materia">7.5</div>
-                                    </div>
+                                    <?php
+                                        require_once("scripts/funzioni.php");
+                                        $pdo = pdoConnection();
+                                        $stmt = $pdo->prepare("SELECT nome, obiettivo, media, ID FROM Materia WHERE fk_id_studente = :fk_id_studente");
+                                        $stmt->bindParam(":fk_id_studente", $_SESSION["user"]["id"]);
+                                        $stmt->execute();
+                                        $materie = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                                        foreach ($materie as $materia) {
+                                            echo '<div class="elemento-lista-materie">
+                                                    <p class="nome-materia">' . $materia["nome"] . '</p>
+                                                    <div class="media-materia">' . $materia["media"] . '</div>
+                                                    <span class="id-materia" style="display: none;">' . $materia["ID"] . '</span>
+                                                </div>';
+                                        }
+
+                                        $_SESSION["materie"] = $materie;
+                                    ?>
                                     <div class="filler">
                                     </div>
-
                                 </div>
                             </div>
                             
                             <div class="main-content-voti-centro">
-                                <div class="main-content-voti-grafico"></div>
+                                <div class="main-content-voti-grafico" id="container-grafico">
+                                    <canvas id="lineChart"></canvas>
+                                </div>
                                 <div class="main-content-voti-obiettivo">
                                     <div class="andamento">
                                         <div class="andamento-materia">
-                                            <p class="nome-materia">Matematica</p>
-                                            <div class="media-materia">7.5</div>
+                                            <p class="nome-materia" id="materia-nome-obiettivo">Matematica</p>
+                                            <div class="media-materia" id="materia-valore-obiettivo">7.5</div>
                                         </div>
                                         <div>in crescita</div>
                                     </div>
@@ -345,59 +323,14 @@
                                 </div>
                             </div>
                             <div class="main-content-voti-corrente">
-                                <div class="div-title">
-                                    materia da estrarre
+                                <div class="div-title" id="div-title-materia-voto">
+                                    
                                     <hr class="hr-calendario">
                                 </div>
                                 <div class="div-add-button">
                                         <button class="add-button" id="add-button-voto">+</button>
                                 </div>
-                                <div class="scroll-bar">
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-                                    <div class="elemento-lista-voti">
-                                        <p class="nome-voto">Interrogazione</p>
-                                        <div class="voto">10-</div>
-                                    </div>
-
+                                <div class="scroll-bar" id="scroll-bar-voti">
                                     <div class="filler">
                                     </div>
                                 </div>
@@ -416,14 +349,23 @@
                                 <hr class="hr-calendario">
                             </div>
                             <div class="content-account">
-                                <div><label for="nome-impostazioni">Nome: </label> 
+                                <div><span class="nome-impostazioni">Nome: </span> 
                                     <p><?php echo $_SESSION["user"]["nome"]; ?></p>
                                 </div>
-                                <div><label for="cognome-impostazioni">Cognome: </label> 
-                                    <p> <?php echo $_SESSION["user"]["cognome"]; ?></p>
+                                <div><span class="cognome-impostazioni">Cognome: </span> 
+                                    <p><?php echo $_SESSION["user"]["cognome"]; ?></p>
                                 </div>
-                                <div><label for="email-impostazioni">Email: </label> 
-                                    <p> <?php echo $_SESSION["user"]["email"]; ?></p> 
+                                <div><span class="email-impostazioni">Email: </span> 
+                                    <p><?php echo $_SESSION["user"]["email"]; ?></p> 
+                                </div>
+                                <div>
+                                    <img src="images/usersImg/<?php 
+                                        if(!isset($_SESSION['user']['imgProfilo'])) {
+                                            echo "defaultImg.png";
+                                        } else {
+                                            echo $_SESSION['user']['id'] . "." . $_SESSION['user']['imgProfilo']; 
+                                        }
+                                    ?>" class="impostazioni-img" height="150px" alt="user image">
                                 </div>
                                 <button id="modifica-account-button" class="default-button" value="Modifica">Modifica</button>
                             </div>
@@ -458,6 +400,8 @@
                 <form action="scripts/aggiungiImpegno.php" method="POST" class="form-aggiungi-impegno">
                     <div class="content-aggiungi-impegno">
 
+                        <input type="hidden" name="idImpegno" id="idImpegno">
+
                         <div class="inputBox">
                             <input id="inputBoxNomeImpegno" type="text" name="nomeImpegno" placeholder="Nome">
                         </div>
@@ -490,6 +434,8 @@
                             <input type="time" name="oraFine">
                         </div>
                         <div class="button-box">
+                            <button type="button" id="elimina-impegno-button" class="default-button elimina-button">Elimina</button>
+                            <div class="spacer"></div>
                             <button class="default-button annulla-button" type="reset">Annulla</button>
                             <input class="default-button" type="submit" value="Aggiungi">
                         </div>
@@ -527,7 +473,7 @@
                         </div>
 
                         <div class="button-box">
-                            <button type="button" class="default-button elimina-button">Elimina</button>
+                            <button type="button" id="elimina-lezione-button" class="default-button elimina-button">Elimina</button>
                             <div class="spacer"></div>
                             <button class="default-button annulla-button" type="reset">Annulla</button>
                             <input class="default-button" id="aggiungi-lezione-button" type="submit" value="Aggiungi">
@@ -536,6 +482,66 @@
                 </form>
             </div>
             <!--fine AggiungiLezione-->
+
+             <!--AggiungiMateria -->
+             <div class="container-aggiungi-materia">
+                <div class="div-title">
+                    <p>Aggiungi Materia</p>
+                    <hr class="hr-calendario">
+                </div>
+                <form action="scripts/aggiungiMateria.php" method="POST" class="form-aggiungi-materia">
+                    <div class="content-aggiungi-materia">
+
+                        <div class="inputBox">
+                            <input id="inputBoxNomeMateria" type="text" name="nomeMateria" placeholder="Nome">
+                        </div>
+
+                        <div class="button-box">
+                            <button type="button" class="default-button elimina-button">Elimina</button>
+                            <div class="spacer"></div>
+                            <button class="default-button annulla-button" type="reset">Annulla</button>
+                            <input class="default-button" id="aggiungi-materia-button" type="submit" value="Aggiungi">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- fine AggiungiMateria-->
+
+            <!--AggiungiVoto -->
+            <div class="container-aggiungi-voto">
+                <div class="div-title">
+                    <p>Aggiungi Voto</p>
+                    <hr class="hr-calendario">
+                </div>
+                <form action="scripts/aggiungiVoto.php" method="POST" class="form-aggiungi-voto">
+                    <div class="content-aggiungi-voto">
+
+                        <input type="hidden" name="fk_id_materia" id="fk_id_materia">
+
+                        <div class="inputBox">
+                            <div class="number-selector-box">
+                                <span>Voto:<br>[0-10]</span>
+                                <input id="inputBoxVoto" type="number" name="voto" placeholder="Voto">
+                                <span>Peso:<br>[1-100]</span>
+                                <input type="number" name="peso" placeholder="Peso">
+                            </div>
+                            
+                            <div class="day-selector-box">
+                                <span>Giorno</span>
+                                <input type="date" name="dataLezione">
+                            </div>
+                        </div>
+
+                        <div class="button-box">
+                            <button type="button" class="default-button elimina-button">Elimina</button>
+                            <div class="spacer"></div>
+                            <button class="default-button annulla-button" type="reset">Annulla</button>
+                            <input class="default-button" id="aggiungi-voto-button" type="submit" value="Aggiungi">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- fine AggiungiVoto-->
 
             
             <!-- Overlay per l'alert -->
@@ -565,6 +571,7 @@
         <script src="scripts/rendercalendar.js?v=<?php echo time(); ?>"></script>
         <script src="scripts/changingpage.js?v=<?php echo time(); ?>"></script>
         <script src="scripts/impostazioni.js?v=<?php echo time(); ?>"></script>
+        <script src="scripts/graphicView.js?v=<?php echo time(); ?>"></script>
 
     </body>
 </html>
