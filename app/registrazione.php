@@ -114,6 +114,11 @@
                 
                 input.setAttribute("type", type);
             });
+            const logoContainer = document.querySelector(".logo-container-form");
+
+            logoContainer.addEventListener("click", function () {
+                window.location.href = "../index.php";
+            });
         </script>
     </body>
 </html>

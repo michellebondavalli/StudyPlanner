@@ -160,6 +160,20 @@
 	font-size: xx-large;
 }
 
+.div-add-button-obiettivo{
+	position: relative;
+	right: -195px;
+	bottom: 53px;
+	z-index: 2;
+}
+
+#p-obiettivo{
+	background-color: var(--azzurro-hover);
+	border-radius: 50px;
+	padding:  15px 60px 15px 30px;
+	position: absolute;
+}
+
 .elimina-button{
 	background-color: var(--corallo) !important;
 }
@@ -336,14 +350,7 @@
 	font-size: 18px;
 }
 
-.div-add-button-obiettivo{
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-	z-index: 2;
-}
-
-.data-voto{
+.data-voto, .id-voto{
 	display: none;
 }
 
@@ -362,9 +369,10 @@
 }
 
 .container-aggiungi-impegno,
- .container-aggiungi-lezione, 
- .container-aggiungi-materia,
- .container-aggiungi-voto{
+.container-aggiungi-lezione, 
+.container-aggiungi-materia,
+.container-aggiungi-voto,
+.container-aggiungi-obiettivo{
 	background-color: var(--bianco);
 	box-shadow: 0 0 1px 0 var(--blu-ombra-item), 0 6px 12px 0 var(--blu-ombra-item);
 	border-radius: 30px;
@@ -384,7 +392,8 @@
 .content-aggiungi-impegno, 
 .content-aggiungi-lezione, 
 .content-aggiungi-materia,
-.content-aggiungi-voto{
+.content-aggiungi-voto,
+.content-aggiungi-obiettivo{
 	width:100%;
 	height: 100%;
 	display: flex;

@@ -306,7 +306,7 @@
                                             <p class="nome-materia" id="materia-nome-obiettivo">Matematica</p>
                                             <div class="media-materia" id="materia-valore-obiettivo">7.5</div>
                                         </div>
-                                        <div>in crescita</div>
+                                        <div id="andamento-materia-crescita"></div>
                                     </div>
                                     <div class="obiettivo">
                                         <div>
@@ -484,7 +484,7 @@
             <!--fine AggiungiLezione-->
 
              <!--AggiungiMateria -->
-             <div class="container-aggiungi-materia">
+            <div class="container-aggiungi-materia">
                 <div class="div-title">
                     <p>Aggiungi Materia</p>
                     <hr class="hr-calendario">
@@ -517,21 +517,63 @@
                     <div class="content-aggiungi-voto">
 
                         <input type="hidden" name="fk_id_materia" id="fk_id_materia">
+                        <input type="hidden" name="idVoto" id="idVoto">
 
                         <div class="inputBox">
+
                             <div class="number-selector-box">
                                 <span>Voto:<br>[0-10]</span>
-                                <input id="inputBoxVoto" type="number" name="voto" placeholder="Voto">
-                                <span>Peso:<br>[1-100]</span>
-                                <input type="number" name="peso" placeholder="Peso">
+                                <input id="inputBoxVoto" type="number" min="0" max="10" step=".5" name="voto" placeholder="Voto">
+                                <span>Peso:<br>[0-100]</span>
+                                <input id="inputBoxPeso" type="number" name="peso" min="0" max="100" placeholder="Peso">
+                            </div>
+                            
+                            <div class="day-selector-box">
+                                <span>Giorno</span>
+                                <input id="inputBoxDataLezione" type="date" name="dataLezione">
+                                <span>Nome</span>
+                                <input id="inputBoxNomeVoto" type="text" name="nomeVoto" placeholder="Nome">
+                            </div>
+                        </div>
+
+                        <div class="button-box">
+                            <button type="button" id="elimina-voto-button" class="default-button elimina-button">Elimina</button>
+                            <div class="spacer"></div>
+                            <button class="default-button annulla-button" type="reset">Annulla</button>
+                            <input class="default-button" id="aggiungi-voto-button" type="submit" value="Aggiungi">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- fine AggiungiVoto-->
+
+            <!--AggiungiObiettivo -->
+            <div class="container-aggiungi-obiettivo">
+                <div class="div-title">
+                    <p>Aggiungi Voto</p>
+                    <hr class="hr-calendario">
+                </div>
+                <form action="scripts/aggiungiVoto.php" method="POST" class="form-aggiungi-voto">
+                    <div class="content-aggiungi-obiettivo">
+
+                        <input type="hidden" name="fk_id_materia" id="fk_id_materia">
+
+                        <div class="inputBox">
+
+                            <div class="number-selector-box">
+                                <span>Voto:<br>[0-10]</span>
+                                <input id="inputBoxVoto" type="number" min="0" max="10" step=".5" name="voto" placeholder="Voto">
+                                <span>Peso:<br>[0-100]</span>
+                                <input type="number" name="peso" min="0" max="100" placeholder="Peso">
                             </div>
                             
                             <div class="day-selector-box">
                                 <span>Giorno</span>
                                 <input type="date" name="dataLezione">
+                            <input id="inputBoxNomeVoto" type="text" name="nomeVoto" placeholder="Nome">
                             </div>
                         </div>
-
+                        
                         <div class="button-box">
                             <button type="button" class="default-button elimina-button">Elimina</button>
                             <div class="spacer"></div>
@@ -541,7 +583,7 @@
                     </div>
                 </form>
             </div>
-            <!-- fine AggiungiVoto-->
+            <!-- fine AggiungiObiettivo-->
 
             
             <!-- Overlay per l'alert -->

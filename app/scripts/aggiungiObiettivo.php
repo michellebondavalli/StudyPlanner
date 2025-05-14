@@ -8,21 +8,21 @@
     }
 
     if(!isset($_POST["obiettivo"]) || !isset($_POST["fk_id_materia"])){
-        header("Location: index.php");
+        header("Location: ../index.php");
         return;
     }
 
-    $obiettivo = $_POST["nomeMateria"];
-    $id_materia = $_POST["id_materia"];
+    $obiettivo = $_POST["votoObiettivo"];
+    $id_materia = $_POST["fk_id_materia"];
     
     $pdo = pdoConnection();
 
     if(!$pdo){
-        header("Location: index.php");
+        header("Location: ../index.php");
         return;
     }
 
-    $stmt = $pdo->prepare("UPDATE Materia SET obiettivo = :obiettivo WHERE id_materia = :id_materia AND fk_id_studente = :fk_id_studente");
+    $stmt = $pdo->prepare("UPDATE Materia SET obiettivo = :obiettivo WHERE ID = :id_materia AND fk_id_studente = :fk_id_studente");
 
     $stmt->bindParam(":obiettivo", $obiettivo, PDO::PARAM_STR);
     $stmt->bindParam(":id_materia", $id_materia, PDO::PARAM_INT);

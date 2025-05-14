@@ -1,4 +1,4 @@
-let myChart;
+let myChart, ultimoVoto;
 graficoVoti();
 
 $(".elemento-lista-materie").click(function () {
@@ -8,6 +8,8 @@ $(".elemento-lista-materie").click(function () {
 
     graficoVoti();
 
+    let media = Number($(this).find('div.media-materia').html());
+    
     let idMateria = $(this).find('span.id-materia').text().trim();
     let nomeMateria = $(this).find('p.nome-materia').text().trim();
     $('#fk_id_materia').val(idMateria);
@@ -32,9 +34,11 @@ $(".elemento-lista-materie").click(function () {
             dataVerifica = formattaData(verifica.dataVerifica);
 
             votoElem.innerHTML = `
+                <span class="id-voto">${verifica.ID}</span>
                 <p class="nome-voto">${verifica.nome}</p>
                 <div class="voto">${verifica.voto}</div>
                 <p class="data-voto">${dataVerifica}</p>
+                <div>${verifica.peso}%</div>
             `;
 
             scrollBar.insertBefore(votoElem, scrollBar.querySelector('.filler'));
@@ -43,15 +47,57 @@ $(".elemento-lista-materie").click(function () {
                 data: dataVerifica,
                 voto: verifica.voto
             });
+            
+            ultimoVoto = $('.elemento-lista-voti').last().find('.voto').html();
         });
 
         graficoVoti(datiPerGrafico);
+
+        if(ultimoVoto > media){
+            $('#andamento-materia-crescita').html("In crescita");
+        } else if(ultimoVoto < media){
+            $('#andamento-materia-crescita').html("In decrescita");
+        } else {
+            $('#andamento-materia-crescita').html("Stabile");
+        }
+    }
+});
+
+$(document).on('click', '.elemento-lista-voti', function () {
+    const nome = $(this).find('p.nome-voto').text().trim();
+    const data = $(this).find('p.data-voto').text().trim();
+    const voto = $(this).find('div.voto').text().trim();
+    const peso = $(this).find('div').last().text().trim().replace("%", "");
+    const idVoto = $(this).find('span.id-voto').text().trim();
+
+    $(".container-aggiungi-voto").fadeIn(500);
+    $(".container-aggiungi-impegno-background").fadeIn(500);
+    $("#inputBoxVoto").val(voto);
+    $("#inputBoxPeso").val(peso);
+    $("#inputBoxDataLezione").val(formattaDataInverse(data));
+    $("#inputBoxNomeVoto").val(nome);
+    $("#idVoto").val(idVoto);
+    $("#aggiungi-voto-button").val("Modifica");
+});
+
+$("#elimina-voto-button").click(function() {
+    const idVoto = $("#idVoto").val();
+    const RequestAJAX = new XMLHttpRequest();
+    RequestAJAX.open("GET", "scripts/deleteVoto.php?idVoto=" + idVoto);
+    RequestAJAX.send();
+    RequestAJAX.onload = function() {
+        location.reload();
     }
 });
 
 function formattaData(dataISO) {
     const [anno, mese, giorno] = dataISO.split("-");
     return `${giorno}/${mese}/${anno}`;
+}
+
+function formattaDataInverse(dataISO) {
+    const [giorno, mese, anno] = dataISO.split("/");
+    return `${anno}-${mese}-${giorno}`;
 }
 
 function graficoVoti(oggettiVoti) {

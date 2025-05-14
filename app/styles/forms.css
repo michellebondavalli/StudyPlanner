@@ -55,6 +55,10 @@ h1{
     position: relative;
 }
 
+.logo-container-form{
+    cursor: pointer;
+}
+
 .eye {
     position: absolute;
     top: 20%;
@@ -167,7 +171,8 @@ h1{
 .content-aggiungi-impegno .inputBox input,
 .content-aggiungi-impegno .inputBox textarea,
 .content-aggiungi-lezione .inputBox input,
-.content-aggiungi-materia .inputBox input {
+.content-aggiungi-materia .inputBox input,
+.content-aggiungi-obiettivo .inputBox input {
     font-size: 1rem;
     letter-spacing: 0.062rem;
     border: 1px solid #ccc;
@@ -178,7 +183,8 @@ h1{
     padding: 16px 25px;
 }
 
-.content-aggiungi-voto .inputBox input{
+.content-aggiungi-voto .inputBox input,
+.content-aggiungi-obiettivo .inputBox input{
     font-size: 1rem;
     letter-spacing: 0.062rem;
     border: 1px solid #ccc;
@@ -198,6 +204,7 @@ h1{
     margin-left: 10%;
     margin-right: 10%;
 }
+
 
 .content-aggiungi-impegno input[type="radio"],
 .content-aggiungi-lezione input[type="radio"]  {
@@ -270,15 +277,20 @@ h1{
     display: flex;
 	margin: 30px 12%;
 	align-items: center;
+
 }
 
 .content-aggiungi-voto .day-selector-box{
 	margin: 30px 0px;
 }
 
+#inputBoxNomeVoto{
+    margin-left: 14%;
+}
+
 .content-aggiungi-impegno input[type="date"],
 .content-aggiungi-voto input[type="date"]{
-    width: 125px;
+    width: 155px;
     background: transparent;
     border-radius: 30px;
     border: 1px solid #ccc;
@@ -296,7 +308,8 @@ h1{
 .content-aggiungi-lezione input[type="date"]:focus,
 .content-aggiungi-lezione input[type="time"]:focus,
 .content-aggiungi-voto .inputBox input:focus,
-.content-aggiungi-voto input[type="date"]:focus {
+.content-aggiungi-voto input[type="date"]:focus,
+.content-aggiungi-obiettivo .inputBox input:focus {
     outline: none;
     border: 2px solid var(--blu-icona-hover);
 }
@@ -314,12 +327,17 @@ h1{
     align-items: center;
 }
 
-.number-selector-box{
+.numbers-selector-box{
     display: flex;
-    align-items: center;
-    
+    align-items: center;  
 }
 
+.number-selector-box{
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+    margin-top: 30px;
+}
 
 .content-aggiungi-impegno input[type="time"]{
     width: 70px;
